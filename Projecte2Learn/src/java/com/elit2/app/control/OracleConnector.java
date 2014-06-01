@@ -10,30 +10,30 @@ import java.util.ArrayList;
 
 public class OracleConnector {
 
-    private static final String servername = "201.68.234.137";
-    private static final String login = "hr";
-    private static final String senha = "hr";
-
-    /**
-     * Método que retorna uma conexão com o banco de dados
-     *
-     * @return java.sql.Connection
-     * @throws SQLException
-     */
-    public static Connection getConnection() throws Exception {
+    private String servername;
+    private String login; 
+    private String senha; 
+    
+    public OracleConnector(){
+        this.servername = "201.68.235.144";
+        this.login = "hr";
+        this.senha = "hr";
+    }
+    
+    public OracleConnector(String pServername,String pLogin, String pSenha){
+        this.servername = pServername;
+        this.login = pLogin;
+        this.senha = pSenha;
+    }
+    
+    public Connection getConnection() throws Exception {
         Class.forName("oracle.jdbc.OracleDriver");
-        String url = "jdbc:oracle:thin:@" + servername + ":1521:XE";
-        return DriverManager.getConnection(url, login, senha);
-        
+        String url = "jdbc:oracle:thin:@" + this.servername + ":1521:XE";
+        return DriverManager.getConnection(url, this.login, this.senha);
     }
 
-    /**
-     * Método que executa uma inserção, deleção ou atualização no banco de dados
-     * @param sql
-     * @return
-     * @throws Exception
-     */
-    public static int executeStatement(String sql) throws Exception {
+   
+    public int executeStatement(String sql) throws Exception {
         Exception e = null;
         int result = 0;
 
@@ -62,7 +62,7 @@ public class OracleConnector {
         return result;
     }
 
-    public static ArrayList<Object[]> getQuery(String sql) throws Exception {
+    public ArrayList<Object[]> getQuery(String sql) throws Exception {
         Exception e = null;
         Connection con = null;
         Statement stmt = null;
