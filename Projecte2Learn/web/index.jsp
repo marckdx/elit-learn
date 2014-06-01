@@ -34,9 +34,7 @@
     <body>
         <%@include  file="_res/menu.jsp" %>
         <%
-            if (session.getAttribute("cd_login") != null) {
-                response.sendRedirect("dashboard.jsp");
-            } else if (request.getParameter("nm_email") != null && request.getParameter("nm_senha") != null) {
+            if (request.getParameter("nm_email") != null && request.getParameter("nm_senha") != null) {
                 LoginDAO logDao = new LoginDAO();
                 ArrayList<Login> logins = logDao.getLogin(request.getParameter("nm_email"), request.getParameter("nm_senha"));
                 if (logins.size() > 0) {
@@ -44,13 +42,13 @@
                     if (logins.get(0).getTp_login().charAt(0) == '1') {
                         ProfessorDAO profDao = new ProfessorDAO();
                         Professor prof = profDao.getProfessorPorLogin(logins.get(0).getCd_login());
-                        request.getSession().setAttribute("professor", prof);
+                        session.setAttribute("professor", prof);
                         response.sendRedirect("dashboard.jsp?tp=pes&con=true");
                     } else if (logins.get(0).getTp_login().charAt(0) == '0') {
                         AlunoDAO alu = new  AlunoDAO();
                         out.println("É aluno.");
                     } else {
-                        out.println("Não deu");
+                         response.sendRedirect("index.jsp?action=idusernotfound");
                     }
                 } else {
                     response.sendRedirect("index.jsp?action=loginerror");
