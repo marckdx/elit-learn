@@ -13,7 +13,7 @@ public class ConteudoDAO {
     Statement stmt;
     ResultSet rs;
 
-    public ArrayList<Conteudo> getConteudo(String usuario, String senha) throws Exception {
+    public ArrayList<Conteudo> getConteudo() throws Exception {
         String sql = "SELECT * FROM tb_conteudo";
 
         con = new OracleConnector().getConnection();
