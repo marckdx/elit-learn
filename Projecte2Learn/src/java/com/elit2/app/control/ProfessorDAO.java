@@ -29,13 +29,13 @@ public class ProfessorDAO {
      * @throws Exception
      */
     public ArrayList<Professor> getProfessor() throws Exception {
-        String sql = "SELECT tp_login FROM tb_professor";
+        String sql = "SELECT tp_login FROM tb_prof";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
         ArrayList<Professor> profes = new ArrayList<Professor>();
         while (rs.next()) {
-            Professor profe = new Professor(rs.getInt("cd_professor"), rs.getString("nm_professor"), rs.getInt("cd_cpf"), rs.getInt("cd_login"));
+            Professor profe = new Professor(rs.getInt("cd_prof"), rs.getString("nm_prof"), rs.getInt("cd_cpf"), rs.getInt("tb_login_cd_login"));
             profes.add(profe);
         }
         con.close();
@@ -51,8 +51,8 @@ public class ProfessorDAO {
      * @return
      */
     public ArrayList<Professor> getProfessorAlunos(Aluno aluno) throws Exception {
-        String sql = "select * from tb_professor p "
-                + "join tb_disciplina_professor dp on(dp.tb_professor_cd_professor=p.cd_professor)"
+        String sql = "select * from tb_prof p "
+                + "join tb_disciplina_professor dp on(dp.tb_prof_cd_prof=p.cd_prof)"
                 + "join tb_disciplina d on(dp.tb_disciplina_cd_disciplina=d.cd_disciplina)"
                 + "join tb_curso_disciplina cd on(cd.tb_curso_disciplina_cd_disciplina=d.cd_disciplina)"
                 + "join tb_curso c on(c.cd_curso=cd.tb_curso_cd_curso)"
@@ -67,7 +67,7 @@ public class ProfessorDAO {
         ArrayList<Professor> profes = new ArrayList<Professor>();
 
         while (rs.next()) {
-            Professor profe = new Professor(rs.getInt("cd_professor"), rs.getString("nm_professor"), rs.getInt("cd_cpf"), rs.getInt("cd_login"));
+            Professor profe = new Professor(rs.getInt("cd_prof"), rs.getString("nm_prof"), rs.getInt("cd_cpf"), rs.getInt("tb_login_cd_login"));
             profes.add(profe);
         }
         con.close();
@@ -78,18 +78,18 @@ public class ProfessorDAO {
 
     /**
      *
-     * @param cd_professor
+     * @param cd_prof
      * @return
      * @throws Exception
      */
-    public ArrayList<Professor> getProfessor(int cd_professor) throws Exception {
-        String sql = "SELECT tp_login FROM tb_professor WHERE cd_professor=" + cd_professor;
+    public ArrayList<Professor> getProfessor(int cd_prof) throws Exception {
+        String sql = "SELECT tp_login FROM tb_prof WHERE cd_prof=" + cd_prof;
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
         ArrayList<Professor> profes = new ArrayList<Professor>();
         while (rs.next()) {
-            Professor profe = new Professor(rs.getInt("cd_professor"), rs.getString("nm_professor"), rs.getInt("cd_cpf"), rs.getInt("cd_login"));
+            Professor profe = new Professor(rs.getInt("cd_prof"), rs.getString("nm_prof"), rs.getInt("cd_cpf"), rs.getInt("tb_login_cd_login"));
             profes.add(profe);
         }
         con.close();
@@ -100,18 +100,18 @@ public class ProfessorDAO {
 
     /**
      * Método que retorna o professor relacionado ao login
-     * @param cd_login
+     * @param tb_login_cd_login
      * @return
      * @throws Exception
      */
-    public Professor getProfessorPorLogin(int cd_login) throws Exception {
-        String sql = "SELECT * FROM tb_professor WHERE cd_login=" + cd_login;
+    public Professor getProfessorPorLogin(int tb_login_cd_login) throws Exception {
+        String sql = "SELECT * FROM tb_prof WHERE tb_login_cd_login=" + tb_login_cd_login;
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
         Professor profe = null;
         while (rs.next()) {
-            profe = new Professor(rs.getInt("cd_professor"), rs.getString("nm_professor"), rs.getInt("cd_cpf"), rs.getInt("cd_login"));
+            profe = new Professor(rs.getInt("cd_prof"), rs.getString("nm_prof"), rs.getInt("cd_cpf"), rs.getInt("tb_login_cd_login"));
         }
         con.close();
         stmt.close();
