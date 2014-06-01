@@ -1,26 +1,26 @@
 package com.elit2.app.model;
 
 public class Conteudo {
-    private int cd_conteudo;
+    private int cd_cont;
     private int tbProfessor_cd_professor;
     private int tbProfessor_cd_cpf_professor;
     private int tbImagem_cd_imagem;
-    private String nm_conteudo;
-    private String ds_conteudo;
+    private String nm_cont;
+    private String ds_cont;
     private int cd_status;
 
-    public Conteudo(int cd_conteudo, int tbProfessor_cd_professor, int tbProfessor_cd_cpf_professor, int tbImagem_cd_imagem, String nm_conteudo, String ds_conteudo, int cd_status) {
-        this.cd_conteudo = cd_conteudo;
+    public Conteudo(int cd_cont, int tbProfessor_cd_professor, int tbProfessor_cd_cpf_professor, int tbImagem_cd_imagem, String nm_cont, String ds_cont, int cd_status) {
+        this.cd_cont = cd_cont;
         this.tbProfessor_cd_professor = tbProfessor_cd_professor;
         this.tbProfessor_cd_cpf_professor = tbProfessor_cd_cpf_professor;
         this.tbImagem_cd_imagem = tbImagem_cd_imagem;
-        this.nm_conteudo = nm_conteudo;
-        this.ds_conteudo = ds_conteudo;
+        this.nm_cont = nm_cont;
+        this.ds_cont = ds_cont;
         this.cd_status = cd_status;
     }
 
-    public void setCd_conteudo(int cd_conteudo) {
-        this.cd_conteudo = cd_conteudo;
+    public void setCd_conteudo(int cd_cont) {
+        this.cd_cont = cd_cont;
     }
 
     public void setTbProfessor_cd_professor(int tbProfessor_cd_professor) {
@@ -35,12 +35,12 @@ public class Conteudo {
         this.tbImagem_cd_imagem = tbImagem_cd_imagem;
     }
 
-    public void setNm_conteudo(String nm_conteudo) {
-        this.nm_conteudo = nm_conteudo;
+    public void setNm_conteudo(String nm_cont) {
+        this.nm_cont = nm_cont;
     }
 
-    public void setDs_conteudo(String ds_conteudo) {
-        this.ds_conteudo = ds_conteudo;
+    public void setDs_conteudo(String ds_cont) {
+        this.ds_cont = ds_cont;
     }
 
     public void setCd_status(int cd_status) {
@@ -48,7 +48,7 @@ public class Conteudo {
     }
 
     public int getCd_conteudo() {
-        return cd_conteudo;
+        return cd_cont;
     }
 
     public int getTbProfessor_cd_professor() {
@@ -64,11 +64,11 @@ public class Conteudo {
     }
 
     public String getNm_conteudo() {
-        return nm_conteudo;
+        return nm_cont;
     }
 
     public String getDs_conteudo() {
-        return ds_conteudo;
+        return ds_cont;
     }
 
     public int getCd_status() {
