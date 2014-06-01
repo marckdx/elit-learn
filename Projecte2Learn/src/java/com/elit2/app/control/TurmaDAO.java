@@ -19,7 +19,8 @@ public class TurmaDAO {
 
     public ArrayList<Turma> getTurma(Turma tur) throws Exception {
 
-        String sql = "SELECT * FROM tb_tur";
+        String sql = "SELECT * FROM tb_tur t JOIN tb_curso c ON (c.cd_curso = t.TB_CURSO_CD_CURSO)";
+               
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
