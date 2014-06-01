@@ -26,8 +26,8 @@ public class TurmaDAO {
         rs = stmt.executeQuery(sql);
         ArrayList<Turma> turmas = new ArrayList<Turma>();
         while (rs.next()) {
-            Turma quest = new Turma(rs.getInt("cd_tur"), rs.getString("nm_tur"), rs.getInt("tb_curso_cd_curso"));
-            turmas.add(quest);
+            Turma turm = new Turma(rs.getInt("cd_tur"), rs.getString("nm_tur"), rs.getInt("tb_curso_cd_curso"));
+            turmas.add(turm);
         }
         con.close();
         stmt.close();

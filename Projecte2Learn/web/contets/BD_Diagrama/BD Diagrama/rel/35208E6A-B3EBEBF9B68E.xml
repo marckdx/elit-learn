@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" mainViewID="114348AA-A94E-55EF-5EBE-F44E46DF6FA5">
-<createdBy>Valmir Desktop</createdBy>
-<createdTime>2014-06-01 03:38:46 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>BD Diagrama</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-<selectedRDBMSSite>32076570-2523-435C-2E92-BF29817DFF70</selectedRDBMSSite>
-</relationalModel>
