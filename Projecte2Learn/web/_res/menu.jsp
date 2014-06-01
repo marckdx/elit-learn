@@ -1,3 +1,16 @@
+<%@page import="com.elit2.app.model.Aluno"%>
+<%@page import="com.elit2.app.model.Professor"%>
+<% String nomeusuario ="";
+
+if(session.getAttribute("professor")!=null){
+      nomeusuario= "Prof.: "+((Professor) session.getAttribute("professor")).getNm_professor();
+}else if(session.getAttribute("aluno")!=null){
+    nomeusuario= ((Aluno) session.getAttribute("professor")).getNm_aluno();
+}else{
+    nomeusuario = "Olá visitante";
+}
+
+%>
 <div class="navbar navbar-default navbar-fixed-top" style="background-color: #0E47B2;">
             <style>
                 .body{padding-top:70px}
@@ -17,13 +30,13 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
-                            <a href="#" style="color:white;">Home</a>
+                            <a href="index.jsp" style="color:white;">Home</a>
                         </li>
                         <li>
-                            <a href="#" style="color:white;">Contatos</a>
+                            <a href="sobre.jsp" style="color:white;">Sobre</a>
                         </li>
                     </ul>
-                    <p class="navbar-text navbar-right" style="color:white;">Bem-vindo, Sérgio Fortuna</p>
+                    <p class="navbar-text navbar-right" style="color:white;"><%out.println(nomeusuario); %></p>
                 </div>
             </div>
         </div>

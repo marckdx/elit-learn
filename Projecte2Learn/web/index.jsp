@@ -3,6 +3,7 @@
     Created on : 31/05/2014, 09:32:08
     Author     : Marco Aurélio
 --%>
+<%@page import="com.elit2.app.control.AlunoDAO"%>
 <%@page import="com.elit2.app.control.ProfessorDAO"%>
 <%@page import="com.elit2.app.model.Professor"%>
 <%@page import="com.elit2.app.control.LoginDAO"%>
@@ -11,6 +12,12 @@
 <%@page import="com.elit2.app.control.OracleConnector"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    if (session.getAttribute("professor") != null || session.getAttribute("aluno") != null) {
+        response.sendRedirect("dashboard.jsp?action=redirect");
+    }
+%>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,20 +34,21 @@
     <body>
         <%@include  file="_res/menu.jsp" %>
         <%
-            if (session.getAttribute("cd_login") != null) {
-                response.sendRedirect("dashboard.jsp");
-            } else if (request.getParameter("nm_email") != null && request.getParameter("nm_senha") != null) {
+            if (request.getParameter("nm_email") != null && request.getParameter("nm_senha") != null) {
                 LoginDAO logDao = new LoginDAO();
                 ArrayList<Login> logins = logDao.getLogin(request.getParameter("nm_email"), request.getParameter("nm_senha"));
-                if(logins.size() > 0){
-                    if(logins.get(0).getTp_login()== "1"){
+                if (logins.size() > 0) {
+                    out.println(logins.get(0).getTp_login());
+                    if (logins.get(0).getTp_login().charAt(0) == '1') {
                         ProfessorDAO profDao = new ProfessorDAO();
                         Professor prof = profDao.getProfessorPorLogin(logins.get(0).getCd_login());
                         session.setAttribute("professor", prof);
-                    }else if(logins.get(0).getTp_login()== "0"){
+                        response.sendRedirect("dashboard.jsp?tp=pes&con=true");
+                    } else if (logins.get(0).getTp_login().charAt(0) == '0') {
+                        AlunoDAO alu = new  AlunoDAO();
                         out.println("É aluno.");
-                    }else{
-                        out.println("Não deu");
+                    } else {
+                         response.sendRedirect("index.jsp?action=idusernotfound");
                     }
                 } else {
                     response.sendRedirect("index.jsp?action=loginerror");
@@ -80,6 +88,9 @@
 
 
                     <div class="col-md-4">
+                        <%if (request.getParameter("action")!=null) {%>
+                        <div class="alert alert-danger" style="text-align: center;">Combinação e-mail/senha inválidos.</div>
+                        <%}%>
                         <form role="form">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
@@ -96,7 +107,7 @@
 
                 </div>
                 <br>
-              
+
             </div>
             <div class="row">
                 <div class="col-md-12">
