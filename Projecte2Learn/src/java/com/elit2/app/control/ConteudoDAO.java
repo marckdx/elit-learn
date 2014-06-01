@@ -13,18 +13,16 @@ public class ConteudoDAO {
     ResultSet rs;
 
     public ArrayList<Conteudo> getConteudo(usuario) throws Exception {
-        String sql = "SELECT * FROM tb_conteudo WHERE nm_email = '" + usuario + "'"
-                + " AND nm_senha= '" + senha + "'";
+        String sql = "SELECT * FROM tb_conteudo";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
         ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
         while (rs.next()) {
-            Conteudo conteudo = new Conteudo(rs.getInt("cd_conteudo"), rs.getInt("tbProfessor_cd_professor"),
-                    rs.getInt("tbProfessor_cd_cpf_professor"),
+            Conteudo conteudo = new Conteudo(rs.getInt("cd_conteudo"), rs.getInt("tbProfessor_cd_professor"), rs.getInt("tbProfessor_cd_cpf_professor"),   
                     rs.getInt("tbImagem_cd_imagem"),
                     rs.getString("nm_conteudo"),
-                    /*rs.getClob("ds_conteudo"),*/
+                    rs.getClob("ds_conteudo"),
                     rs.getInt("cd_status"));
             conteudos.add(conteudo);
         }
@@ -37,9 +35,10 @@ public class ConteudoDAO {
     public int setConteudo(Conteudo conteudo) throws Exception {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
-        int result = stmt.executeUpdate("INSERT INTO tb_login VALUES ("+conteudo.getCd_conteudo()+",'"+conteudo.getTbProfessor_cd_cpf_professor()+"','"+login.getNm_senha()+"',"
-                + "                     '"+conteudo.getTbImagem_cd_imagem()+"','"+conteudo.getNm_conteudo()+"','"+conteudo.getDs_conteudo()+"')"
-                + "                     ,'"+conteudo.getCd_status()+"'");
+        int result = stmt.executeUpdate("INSERT INTO tb_login VALUES ("+conteudo.getCd_conteudo()+",'"+conteudo.getTbProfessor_cd_professor()+"',"
+                + "                      '"+conteudo.getTbProfessor_cd_cpf_professor()+"','"+conteudo.getTbImagem_cd_imagem()+"'"
+                + "'"+conteudo.getNm_conteudo()+"', '"+conteudo.getDs_conteudo()+"', '"+conteudo.getCd_status()+"')");
+                                    
         return result;
     }
 }
