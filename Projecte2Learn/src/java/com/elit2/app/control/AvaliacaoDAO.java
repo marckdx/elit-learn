@@ -69,7 +69,7 @@ public class AvaliacaoDAO {
 
         while (rs.next()) {
             Professor profe = new Professor(rs.getInt("cd_prof"), rs.getString("nm_prof"), rs.getInt("cd_cpf"), rs.getInt("tb_login_cd_login"));
-            profes.add(profe);
+            avaliacoes.add(profe);
         }
         con.close();
         stmt.close();
