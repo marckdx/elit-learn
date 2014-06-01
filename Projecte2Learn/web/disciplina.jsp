@@ -4,9 +4,25 @@
     Author     : Jhonatan
 --%>
 
+
+<%@page import="com.elit2.app.model.Disciplina"%>
+<!DOCTYPE html>
+<%@page import="com.elit2.app.control.AlunoDAO"%>
+<%@page import="com.elit2.app.control.ProfessorDAO"%>
+<%@page import="com.elit2.app.control.DisciplinaDAO"%>
+<%@page import="com.elit2.app.model.Professor"%>
+<%@page import="com.elit2.app.control.LoginDAO"%>
+<%@page import="com.elit2.app.model.Login"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.elit2.app.control.OracleConnector"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<!DOCTYPE html>
+
+    
+    <!--if (session.getAttribute("professor") == null || session.getAttribute("aluno") == null) {
+         response.sendRedirect("index.jsp?action=redirect");
+    }-->
+
 <html>
 
 <head>
@@ -47,10 +63,7 @@
             <a href="#" style="color:white;">Contatos</a>
           </li>
         </ul>
-
-
-
-        <p class="navbar-text navbar-right" style="color:white;">Bem-vindo, Sérgio Fortuna</p>
+        <%@include file="_res/menu.jsp"%>    
       </div>
     </div>
   </div>
@@ -77,17 +90,14 @@
 
             <a class="btn btn-primary" style="width: 100%;">Inicio</a>
 
-            <a class="active btn btn-lg btn-success" style="width:100%">Disciplinas</a>
-            <a class="btn btn-primary" style="width:100%">Conteúdos</a>
-            <a class="btn btn-primary" style="width:100%">Avaliações</a>
+            <a href="disciplina.jsp" class="active btn btn-lg btn-success" style="width:100%">Disciplinas</a>
+            <a href="conteudo.jsp" class="btn btn-primary" style="width:100%">Conteúdos</a>
+            <a href="avaliacao.jsp" class="btn btn-primary" style="width:100%">Avaliações</a>
           </div>
         </div>
       </div>
       <div class="col-md-9">
         <ul class="nav nav-pills">
-
-
-
         </ul>
         <div class="panel panel-primary">
           <div class="panel-heading">
@@ -99,18 +109,17 @@
               <li class="list-group-item">
                 <b>Disciplina(s)</b>
               </li>
-              <li class="list-group-item">Matemática</li>
-              <li class="list-group-item">Geografia</li>
-              <li class="list-group-item">Inglês</li>
-              <li class="list-group-item">Português</li>
+              <%
+                DisciplinaDAO disciDAO = new DisciplinaDAO();
+                 for (Disciplina d: disciDAO.getDisciplinas())
+                {
+                %> <li class="list-group-item"><%=d.getNm_Disciplina()%></li><%
+                }
+              %>
             </ul>
           </div>
         </div>
-
-
-
       </div>
-
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
@@ -124,9 +133,6 @@
           <li>
             <a href="#">2</a>
           </li>
-
-
-
           <li>
             <a href="#">Próximo</a>
           </li>
@@ -137,179 +143,11 @@
       <div class="col-md-12">
         <hr>
       </div>
-
     </div>
     <div class="row">
       <p style="text-align:center; color: #0E47B2;" class="text-info">Todos os direitos reservados ELIT IT c 2014</p>
     </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
-
 </html>
