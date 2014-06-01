@@ -88,24 +88,34 @@
                 </div>
             </div>
             <%} else if (session.getAttribute("professor") != null) {%>
-            <div style="float: right;">
-                <a class="btn btn-success">Nova avaliação</a>
-                <a class="btn btn-warning">Nova tarefa</a>
+            <%
+                String parametro;
+                if (request.getParameter("page") == null) {
+                    parametro = "inicio";
+                } else {
+                    parametro = request.getParameter("page").toString();
+                }
+            %>
+            <div style="width: 80%; float: right;">
+                <form style="float: right;" action="dashboard.jsp" method="GET">
+                    <input class="form-control" style="margin-top: auto; width:  150px; float: left;" name="search" type="search" placeholder="Digite algo" />
+                    &nbsp;<button class="btn btn-primary" type="submit">Pesquisar</button>
+                    <input type="hidden" name="page" value="<%=parametro%>"/>
+                    <a class="btn btn-success" href="avaliacao.jsp">Nova avaliação</a>
+                    <a class="btn btn-warning" href="conteudo.jsp">Nova tarefa</a>
+                </form>
             </div>
+            <br />
+            <br/>
             <div>
-                <%
-                    String parametro;
-                    if (request.getParameter("page") == null) {
-                        parametro = "inicio";
-                    } else {
-                        parametro = request.getParameter("page").toString();
-                    }%>
-
                 <%if (parametro.equals("alunos")) {%>
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active"><a href="dashboard.jsp?page=alunos">Alunos</a></li>
                     <li><a href="dashboard.jsp?page=tarefasreal">Tarefas realizadas</a></li>
                     <li><a href="dashboard.jsp?page=inicio">Tarefas</a></li>
+                    <div style="float: right; width: 82%;">
+                        <%@include file="_res/lista_alunos.jsp" %>
+                    </div>
                 </ul>               
                 <%} else if (parametro.equals("tarefasreal")) {%>
                 <ul class="nav nav-tabs nav-justified">

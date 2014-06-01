@@ -63,6 +63,7 @@ public class AvaliacaoDAO {
         ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
 
         while (rs.next()) {
+
             Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"));
             avaliacoes.add(avaliacao);
         }
@@ -102,6 +103,7 @@ public class AvaliacaoDAO {
         rs.close();
         return avaliacoes;
     }
+
 
 
 }
