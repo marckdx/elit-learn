@@ -1,0 +1,43 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="D9D82FC0-CBE0-5322-0658-C1C7A04E0A2E" name="tb_altern" seqName="seg_0"/>
+   <object objectType="Table" objectID="2F9787E1-65FE-23E0-4533-29313E510662" name="tb_alu" seqName="seg_0"/>
+   <object objectType="Table" objectID="A8D39FE1-D881-C4D8-ADCF-7B253A9D798B" name="tb_avali" seqName="seg_0"/>
+   <object objectType="Table" objectID="0E371713-A7FB-045A-4677-367D01FE643D" name="tb_avali_quest" seqName="seg_0"/>
+   <object objectType="Table" objectID="6238FBB0-A8AD-98FC-9097-30A8FA61F1F0" name="tb_cont" seqName="seg_0"/>
+   <object objectType="Table" objectID="4AC84168-33AC-A767-4316-4BFC74A1D3E5" name="tb_cur" seqName="seg_0"/>
+   <object objectType="Table" objectID="245425DE-6B88-877F-7390-3C38BC7D10DE" name="tb_cur_discip" seqName="seg_0"/>
+   <object objectType="Table" objectID="8BD77CAC-65D3-94E9-EABF-CC03EC2B7D1B" name="tb_cur_perio" seqName="seg_0"/>
+   <object objectType="Table" objectID="32641132-94BF-A801-A3F0-2D69A95BB240" name="tb_discip" seqName="seg_0"/>
+   <object objectType="Table" objectID="3F8A1627-8A5F-338D-ED27-13B22F868D8A" name="tb_discip_prof" seqName="seg_0"/>
+   <object objectType="Table" objectID="F15668F1-24E0-581A-BBD8-CA011EE03396" name="tb_imag" seqName="seg_0"/>
+   <object objectType="Table" objectID="67C5E1AC-6866-594C-6526-2A48D61FA63B" name="tb_inst" seqName="seg_0"/>
+   <object objectType="Table" objectID="10366A84-4939-030B-2C3E-0C628935A0A7" name="tb_inst_cur" seqName="seg_0"/>
+   <object objectType="Table" objectID="B66C92AF-F651-A6AA-D437-BBD7D8E14351" name="tb_login" seqName="seg_0"/>
+   <object objectType="Table" objectID="08053642-8265-45D3-10AA-30D34A256D9B" name="tb_perio" seqName="seg_0"/>
+   <object objectType="Table" objectID="39681CCE-C6BA-C4BC-22FB-2F2CEBBB0955" name="tb_prof" seqName="seg_0"/>
+   <object objectType="Table" objectID="38AE81BB-9BEC-5131-474A-63B6732AAC44" name="tb_quest" seqName="seg_0"/>
+   <object objectType="Table" objectID="C9B6C796-E5A9-7134-7D0B-39BBCC6C8182" name="tb_stat" seqName="seg_0"/>
+   <object objectType="Table" objectID="E9CF0993-3D93-3D2E-7656-CA97F6AD4399" name="tb_tur" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="4B1DE17D-F28C-ED0A-C8D6-5D8FEC86F919" name="FK_ASS_10" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="A6822643-A069-A1AD-6472-C9CA41D185C3" name="FK_ASS_12" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="BD81F037-1812-0509-6A31-DB095DFA08DB" name="FK_ASS_13" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="2F31B08C-482F-6FBD-3347-D9B34656101F" name="FK_ASS_16" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="BD294F1E-66A5-475C-7992-BC5F3B620638" name="FK_ASS_17" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="EDF83DF0-B1BA-8301-DB46-8C74CB9A1B35" name="FK_ASS_2" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="7072E485-E5CB-684A-3EDD-F5ECADF6BDBD" name="FK_ASS_3" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="D825BA5B-09CF-C3AE-8057-7C48C457ECC3" name="FK_ASS_7" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="B039B491-0738-0102-B7CB-51635C111719" name="FK_ASS_8" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="55659DC3-BB8F-CA73-5282-EF4DE28AFF90" name="FK_ASS_9" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="00334546-4A89-CFB3-0E9A-1A0CDBBDB84D" name="tb_alternativa_tb_questao_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="3D2BD08D-ADD4-EE95-A33F-387BA6BABCF7" name="tb_aluno_tb_login_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="1B2DAE36-C07A-3613-0EEB-19BEA7F5C764" name="tb_aluno_tb_turma_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="AEADB050-B17B-1EFF-1BCC-61C8D3F7D65B" name="tb_avaliacao_tb_conteudo_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="1EE9C970-158C-B207-F974-F64E060248AF" name="tb_avaliacao_tb_imagem_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="F12F6FB0-4FC9-6703-77E1-D302F7BA2F08" name="tb_avaliacao_tb_status_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="C0319D15-1F82-6A06-4BFA-1049CD66DBDA" name="tb_conteudo_tb_imagem_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="3C11EA07-83CC-BDB3-45D9-0B1CAAB743AF" name="tb_conteudo_tb_professor_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="27975B5F-D0F4-5BC0-BDB3-30DA5A3B844F" name="tb_conteudo_tb_status_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="6970BA95-7ED5-9F0C-5995-63CF11C1F672" name="tb_professor_tb_login_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="F00D17DF-A087-11FC-C4E0-83622BE51B25" name="tb_turma_tb_curso_FK" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="39681CCE-C6BA-C4BC-22FB-2F2CEBBB0955" name="tb_prof">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>28B8D5EF-648A-5DE6-1054-5BBA3712D38B</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cd_prof" id="F3842EE9-8913-047D-044B-A30CF649136C">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>12936057-E704-5067-22C1-DA1BB9BE5941</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nm_prof" id="0626A53A-9FE9-0D30-C499-1D462C4EFAEC">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>F60A0B26-793E-CCBB-903E-7443A95F61F5</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cd_cpf" id="2F9C391D-1599-03AB-4405-DEAAA2EA19A3">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>1D214ACC-B3DB-2496-06BF-1091FD808D95</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tb_login_cd_login" id="7AA84DC2-E3A8-E61C-51FB-9E0E42D34449">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>48BC76D2-711F-96BE-4902-877B1D4A4232</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>F5E4DCB0-B07C-0160-C909-7308E3ABBFFD</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6970BA95-7ED5-9F0C-5995-63CF11C1F672" referredColumn="F5E4DCB0-B07C-0160-C909-7308E3ABBFFD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C0E1C504-D0B8-9C00-AD8B-C11BFA672C92" name="tb_professor_PK">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>D0B50C0B-246D-E403-BEFC-D24CD0649677</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3842EE9-8913-047D-044B-A30CF649136C"/>
+<colUsage columnID="2F9C391D-1599-03AB-4405-DEAAA2EA19A3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B1035CBB-E707-849D-CEA5-E5F1C81E4879" name="tb_professor__IDX">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>34BEAF03-EAE7-8E1C-640F-AC24F2B7D4D4</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="7AA84DC2-E3A8-E61C-51FB-9E0E42D34449"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="46BB0354-DC6D-E9C1-7FAA-23A21E163A9A" name="tb_professor_tb_login_FK">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>34BEAF03-EAE7-8E1C-640F-AC24F2B7D4D4</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7AA84DC2-E3A8-E61C-51FB-9E0E42D34449"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

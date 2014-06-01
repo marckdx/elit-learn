@@ -1,9 +1,3 @@
-<%-- 
-    Document   : session
-    Created on : 31/05/2014, 21:53:23
-    Author     : Jhonatan
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     public class session{

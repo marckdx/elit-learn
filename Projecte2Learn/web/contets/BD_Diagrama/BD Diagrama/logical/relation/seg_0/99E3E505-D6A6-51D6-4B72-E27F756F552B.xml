@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="tb_prof_cont" directorySegmentName="seg_0" id="99E3E505-D6A6-51D6-4B72-E27F756F552B">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<importedID>F173A471-731D-2949-6234-055F8B38E35F</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="true"/>
+</engineerTo>
+<sourcePk>D0B50C0B-246D-E403-BEFC-D24CD0649677</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>28B8D5EF-648A-5DE6-1054-5BBA3712D38B</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>596BF818-61B5-183D-D640-F2CDDDC2919B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
