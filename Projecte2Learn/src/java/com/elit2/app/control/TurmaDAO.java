@@ -19,14 +19,15 @@ public class TurmaDAO {
 
     public ArrayList<Turma> getTurma(Turma tur) throws Exception {
 
-        String sql = "SELECT * FROM tb_tur";
+        String sql = "SELECT * FROM tb_tur t JOIN tb_curso c ON (c.cd_curso = t.TB_CURSO_CD_CURSO)";
+               
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
         ArrayList<Turma> turmas = new ArrayList<Turma>();
         while (rs.next()) {
-            Turma quest = new Turma(rs.getInt("cd_tur"), rs.getString("nm_tur"), rs.getInt("tb_curso_cd_curso"));
-            turmas.add(quest);
+            Turma turm = new Turma(rs.getInt("cd_tur"), rs.getString("nm_tur"), rs.getInt("tb_curso_cd_curso"));
+            turmas.add(turm);
         }
         con.close();
         stmt.close();
