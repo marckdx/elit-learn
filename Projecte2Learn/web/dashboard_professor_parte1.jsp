@@ -46,7 +46,7 @@
             <a href="#" style="color:white;">Contatos</a>
           </li>
         </ul>
-          
+          <%//JHOW JHOW%>
 
         <p class="navbar-text navbar-right" style="color:white;">Bem-vindo, Sérgio Fortuna</p>
       </div>
