@@ -21,7 +21,7 @@ public class ProfessorDAO {
      * @throws Exception
      */
     public ArrayList<Professor> getProfessor() throws Exception {
-        String sql = "SELECT tp_login FROM tb_prof";
+        String sql = "SELECT * FROM tb_prof";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);

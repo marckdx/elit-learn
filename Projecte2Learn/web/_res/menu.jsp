@@ -5,7 +5,7 @@
 if(session.getAttribute("professor")!=null){
       nomeusuario= "Prof.: "+((Professor) session.getAttribute("professor")).getNm_professor();
 }else if(session.getAttribute("aluno")!=null){
-    nomeusuario= ((Aluno) session.getAttribute("professor")).getNm_aluno();
+    nomeusuario= "Al.: "+((Aluno) session.getAttribute("aluno")).getNm_aluno();
 }else{
     nomeusuario = "Olá visitante";
 }
@@ -35,6 +35,9 @@ if(session.getAttribute("professor")!=null){
                         <li>
                             <a href="sobre.jsp" style="color:white;">Sobre</a>
                         </li>
+                        <%if(session.getAttribute("professor")!=null || session.getAttribute("aluno")!=null){%>
+                            <a type="button" class="btn btn-danger navbar-btn navbar-right" href="./sair.jsp">Sair</a>&nbsp;&nbsp;&nbsp;
+                        <%}%>
                     </ul>
                     <p class="navbar-text navbar-right" style="color:white;"><%out.println(nomeusuario); %></p>
                 </div>
