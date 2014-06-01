@@ -3,12 +3,12 @@
     Created on : 31/05/2014, 09:32:08
     Author     : Marco Aurélio
 --%>
+<%@page import="com.elit2.app.control.LoginDAO"%>
 <%@page import="com.elit2.app.model.Login"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.elit2.app.control.OracleConnector"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
 
@@ -22,40 +22,22 @@
         <script type="text/javascript" src="./js/jquery.min.js"></script>
         <script type="text/javascript" src="./js/bootstrap.min.js"></script>
     </head>
-
-
     <body>
         <%@include  file="_res/menu.jsp" %>
         <%
             if (session.getAttribute("cd_login") != null) {
                 response.sendRedirect("dashboard.jsp");
             } else if (request.getParameter("nm_email") != null && request.getParameter("nm_senha") != null) {
-                String sql = "SELECT tp_login FROM tb_login WHERE nm_email = '" + request.getParameter("nm_email") + "'"
-                        + " AND nm_senha= '" + request.getParameter("nm_senha") + "'";
-                //int tp_login = Integer.valueOf(OracleConnector.getQuery(sql).get(1).toString());
-                ArrayList<Object[]> obj = OracleConnector.getQuery(sql);
-                out.println(obj.size());
-                out.println("<div style='position: fixed;'>Valmir</div>");
-                //É PROFESSOR
-                if (obj.size() > 0) {
-                    sql = "SELECT * FROM tb_login WHERE nm_email = '"+request.getParameter("nm_email")+ "' AND"
-                            + "tp_login = 0";
-                    obj = OracleConnector.getQuery(sql);
-                        if (obj.size() >0) {
-                                            out.println("Aluno");
-
-                        }else{
-                                        out.println("Professor");
-
-                        }
-                   /* if ((int)obj.get(0)[0]==1) {
-                        out.println("Professor");
-                        //É ALUNO
-                    } else if ((int)obj.get(0)[0] == 0) {
-                        out.println("Aluno");
-
-                        //NÃO ESTÁ CADASTRADO
-                    }*/
+                LoginDAO logDao = new LoginDAO();
+                ArrayList<Login> logins = logDao.getLogin(request.getParameter("nm_email"), request.getParameter("nm_senha"));
+                if(logins.size() > 0){
+                    if(logins.get(0).getTp_login()== "1"){
+                        out.println("É professor.");
+                    }else if(logins.get(0).getTp_login()== "0"){
+                        out.println("É aluno.");
+                    }else{
+                        out.println("Não deu");
+                    }
                 } else {
                     response.sendRedirect("index.jsp?action=loginerror");
                 }
@@ -138,59 +120,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </body>
 
