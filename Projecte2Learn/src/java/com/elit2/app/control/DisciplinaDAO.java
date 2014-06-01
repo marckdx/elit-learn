@@ -21,13 +21,13 @@ public class DisciplinaDAO {
      * @throws Exception
      */
     public ArrayList<Disciplina> getDisciplina() throws Exception {
-        String sql = "SELECT nm_disciplina FROM tb_disciplina";
+        String sql = "SELECT nm_discip FROM tb_discip";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
         ArrayList<Disciplina> disci = new ArrayList<Disciplina>();
         while (rs.next()) {
-            Disciplina dis = new Disciplina(rs.getInt("cd_disciplina"), rs.getString("nm_disciplina"));
+            Disciplina dis = new Disciplina(rs.getInt("cd_discip"), rs.getString("nm_discip"));
             disci.add(dis);
         }
         con.close();
