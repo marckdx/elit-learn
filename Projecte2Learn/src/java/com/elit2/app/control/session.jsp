@@ -7,19 +7,22 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     public class session{
-             
-        public criarSessao(){ 
-                session.setAttribute("login", request.getParameter("nm_email"));            
-                session.setAttribute("senha", request.getParameter("cd_senha")); 
+        
+        public setSessao(String pNomeSessao, String pInput){ 
+               session.setAttribute(pNomeSessao, request.getParameter(pInput));            
+        }
+        
+        public String getSessao(){ 
+            String sessao = session.getAttribute(pNomeSessao, request.getParameter(pInput));
+            return sessao;
         }
 
-        public destruirSessao(){
-                session.removeAttribute("login");
-                session.removeAttribute("senha");
+        public destruirSessao(pNomeSessao){
+                session.removeAttribute(pNomeSessao);
         }
 			
         public  skipLogin(){
-                if session(pStrSessionName) != true {
+                if (session(pNomeSessao) != true) {
                         response.sendredirect("../index.jsp");	 
                 }
         }
