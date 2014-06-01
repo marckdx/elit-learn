@@ -18,11 +18,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-    
-    <!--if (session.getAttribute("professor") == null || session.getAttribute("aluno") == null) {
+<%    
+    if (session.getAttribute("professor") == null || session.getAttribute("aluno") == null) {
          response.sendRedirect("index.jsp?action=redirect");
-    }-->
-
+    }
+%>
 <html>
 
 <head>
@@ -113,7 +113,7 @@
                 DisciplinaDAO disciDAO = new DisciplinaDAO();
                  for (Disciplina d: disciDAO.getDisciplinas())
                 {
-                %> <li class="list-group-item"><%=d.getNm_Disciplina()%></li><%
+              %> <li class="list-group-item"><%=d.getNm_Disciplina()%></li><%
                 }
               %>
             </ul>
