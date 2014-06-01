@@ -38,7 +38,7 @@ public class AlternativaDAO {
         return alters;
     }
     
-      public int setLogin(Questao questao, Alternativa alter) throws Exception{
+      public int setAlternativa(Questao questao, Alternativa alter) throws Exception{
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         int result = stmt.executeUpdate("INSERT INTO tb_altern VALUES ("+alter.getCd_alternativa()+",'"+alter.getDs_alternativa()+"',"+questao.getCd_questao()+")");
