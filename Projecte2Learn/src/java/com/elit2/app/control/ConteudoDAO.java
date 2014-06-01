@@ -13,9 +13,6 @@ public class ConteudoDAO {
     Statement stmt;
     ResultSet rs;
 
-
-   
-
     public ArrayList<Conteudo> getConteudo(String usuario, String senha) throws Exception {
         String sql = "SELECT * FROM tb_conteudo WHERE nm_email = '" + usuario + "'"
                 + " AND nm_senha= '" + senha + "'";
@@ -28,7 +25,7 @@ public class ConteudoDAO {
             Conteudo conteudo = new Conteudo(rs.getInt("cd_conteudo"), rs.getInt("tbProfessor_cd_professor"), rs.getInt("tbProfessor_cd_cpf_professor"),   
                     rs.getInt("tbImagem_cd_imagem"),
                     rs.getString("nm_conteudo"),
-                    rs.getClob("ds_conteudo"),
+                    rs.getClob("ds_conteudo").toString(),
                     rs.getInt("cd_status"));
             conteudos.add(conteudo);
         }
