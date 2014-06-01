@@ -11,28 +11,28 @@ package com.elit2.app.model;
  * @author Valmir Desktop
  */
 public class Avaliacao {
-    private int cd_avaliacao;
-    private String nm_avaliacao;
+    private int cd_avali;
+    private String nm_aval;
 
-    public Avaliacao(int cd_avaliacao, String nm_avaliacao) {
-        this.cd_avaliacao = cd_avaliacao;
-        this.nm_avaliacao = nm_avaliacao;
+    public Avaliacao(int cd_avali, String nm_aval) {
+        this.cd_avali = cd_avali;
+        this.nm_aval = nm_aval;
     }
 
     public int getCd_avaliacao() {
-        return cd_avaliacao;
+        return cd_avali;
     }
 
-    public void setCd_avaliacao(int cd_avaliacao) {
-        this.cd_avaliacao = cd_avaliacao;
+    public void setCd_avaliacao(int cd_avali) {
+        this.cd_avali = cd_avali;
     }
 
     public String getNm_avaliacao() {
-        return nm_avaliacao;
+        return nm_aval;
     }
 
-    public void setNm_avaliacao(String nm_avaliacao) {
-        this.nm_avaliacao = nm_avaliacao;
+    public void setNm_avaliacao(String nm_aval) {
+        this.nm_aval = nm_aval;
     }
     
 }
