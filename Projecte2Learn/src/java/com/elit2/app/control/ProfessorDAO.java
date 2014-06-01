@@ -76,6 +76,12 @@ public class ProfessorDAO {
         return profes;
     }
 
+    /**
+     *
+     * @param cd_professor
+     * @return
+     * @throws Exception
+     */
     public ArrayList<Professor> getProfessor(int cd_professor) throws Exception {
         String sql = "SELECT tp_login FROM tb_professor WHERE cd_professor=" + cd_professor;
         con = new OracleConnector().getConnection();
@@ -90,5 +96,26 @@ public class ProfessorDAO {
         stmt.close();
         rs.close();
         return profes;
+    }
+
+    /**
+     * Método que retorna o professor relacionado ao login
+     * @param cd_login
+     * @return
+     * @throws Exception
+     */
+    public Professor getProfessorPorLogin(int cd_login) throws Exception {
+        String sql = "SELECT * FROM tb_professor WHERE cd_login=" + cd_login;
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        Professor profe = null;
+        while (rs.next()) {
+            profe = new Professor(rs.getInt("cd_professor"), rs.getString("nm_professor"), rs.getInt("cd_cpf"), rs.getInt("cd_login"));
+        }
+        con.close();
+        stmt.close();
+        rs.close();
+        return profe;
     }
 }
