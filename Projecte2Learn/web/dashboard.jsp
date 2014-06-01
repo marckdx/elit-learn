@@ -37,6 +37,7 @@
             </div>
             <div class="row">
                 <%@include file="_res/menu_lateral.jsp" %>
+                <%if (session.getAttribute("aluno") != null) {%>
                 <div class="col-md-10">
                     <div class="col-md-6">
                         <ul class="breadcrumb" style="width: 100%;">
@@ -82,26 +83,48 @@
                                 <td>Não</td>
                                 <td>Não</td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Polinômios</td>
-                                <td>Gilberto</td>
-                                <td>Matemática</td>
-                                <td>Não</td>
-                                <td>Sim</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Brunno</td>
-                                <td>Futebol</td>
-                                <td>Ed. Física</td>
-                                <td>Sim</td>
-                                <td>Sim</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+            <%} else if (session.getAttribute("professor") != null) {%>
+            <div style="float: right;">
+                <a class="btn btn-success">Nova avaliação</a>
+                <a class="btn btn-warning">Nova tarefa</a>
+            </div>
+            <div>
+                <%
+                    String parametro;
+                    if (request.getParameter("page") == null) {
+                        parametro = "inicio";
+                    } else {
+                        parametro = request.getParameter("page").toString();
+                    }%>
+
+                <%if (parametro.equals("alunos")) {%>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="dashboard.jsp?page=alunos">Alunos</a></li>
+                    <li><a href="dashboard.jsp?page=tarefasreal">Tarefas realizadas</a></li>
+                    <li><a href="dashboard.jsp?page=inicio">Tarefas</a></li>
+                </ul>               
+                <%} else if (parametro.equals("tarefasreal")) {%>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="dashboard.jsp?page=tarefasreal">Tarefas realizadas</a></li>
+                    <li><a href="dashboard.jsp?page=inicio">Tarefas</a></li>
+                    <li><a href="dashboard.jsp?page=alunos">Alunos</a></li>
+                </ul>
+                <%} else {%>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="dashboard.jsp?page=inicio">Tarefas</a></li>
+                    <li><a href="dashboard.jsp?page=alunos">Alunos</a></li>
+                    <li><a href="dashboard.jsp?page=tarefasreal">Tarefas realizadas</a></li>
+                </ul>
+                <%}%>
+            </div>
+
+            <!-- VERIFICAR QUE TELA O PROFESSOR QUER ACESSAR-->
+
+            <%}%>
             <div class="row">
                 <div class="col-md-12 text-center">
                     <ul class="pagination">
