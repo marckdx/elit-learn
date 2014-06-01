@@ -24,7 +24,7 @@ public class Login {
         this.nm_senha = nm_senha;
         this.tp_login = tp_login;
     }
-
+    
     public int getCd_login() {
         return cd_login;
     }

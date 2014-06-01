@@ -1,32 +1,32 @@
 package com.elit2.app.model;
 
 public class Professor extends Usuario{
-    private int cd_professor;
-    private String nm_professor;
+    private int cd_prof;
+    private String nm_prof;
     private int cd_cpf;
-    private int cd_login;
+    private int tb_login_cd_login;
 
-    public Professor(int cd_professor, String nm_professor, int cd_cpf, int cd_login) {
-        this.cd_professor = cd_professor;
-        this.nm_professor = nm_professor;
+    public Professor(int cd_prof, String nm_prof, int cd_cpf, int tb_login_cd_login) {
+        this.cd_prof = cd_prof;
+        this.nm_prof = nm_prof;
         this.cd_cpf = cd_cpf;
-        this.cd_login = cd_login;
+        this.tb_login_cd_login = tb_login_cd_login;
     }
 
     public int getCd_professor() {
-        return cd_professor;
+        return cd_prof;
     }
 
-    public void setCd_professor(int cd_professor) {
-        this.cd_professor = cd_professor;
+    public void setCd_professor(int cd_prof) {
+        this.cd_prof = cd_prof;
     }
 
     public String getNm_professor() {
-        return nm_professor;
+        return nm_prof;
     }
 
-    public void setNm_professor(String nm_professor) {
-        this.nm_professor = nm_professor;
+    public void setNm_professor(String nm_prof) {
+        this.nm_prof = nm_prof;
     }
 
     public int getCd_cpf() {
@@ -38,11 +38,11 @@ public class Professor extends Usuario{
     }
 
     public int getCd_login() {
-        return cd_login;
+        return tb_login_cd_login;
     }
 
-    public void setCd_login(int cd_login) {
-        this.cd_login = cd_login;
+    public void setCd_login(int tb_login_cd_login) {
+        this.tb_login_cd_login = tb_login_cd_login;
     }
     
     

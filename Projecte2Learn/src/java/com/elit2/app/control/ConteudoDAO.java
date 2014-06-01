@@ -14,17 +14,17 @@ public class ConteudoDAO {
     ResultSet rs;
 
     public ArrayList<Conteudo> getConteudo() throws Exception {
-        String sql = "SELECT * FROM tb_conteudo";
+        String sql = "SELECT * FROM tb_cont";
 
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
         ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
         while (rs.next()) {
-            Conteudo conteudo = new Conteudo(rs.getInt("cd_conteudo"), rs.getInt("tbProfessor_cd_professor"), rs.getInt("tbProfessor_cd_cpf_professor"),   
+            Conteudo conteudo = new Conteudo(rs.getInt("cd_cont"), rs.getInt("tbProfessor_cd_professor"), rs.getInt("tbProfessor_cd_cpf_professor"),   
                     rs.getInt("tbImagem_cd_imagem"),
-                    rs.getString("nm_conteudo"),
-                    rs.getClob("ds_conteudo").toString(),
+                    rs.getString("nm_cont"),
+                    rs.getClob("ds_cont").toString(),
                     rs.getInt("cd_status"));
             conteudos.add(conteudo);
         }
