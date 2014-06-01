@@ -7,9 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-if(session.getAttribute("nm_usuario")==null){
-    //response.sendRedirect("index.jsp");
-}
+    if (session.getAttribute("professor") == null && session.getAttribute("aluno") == null) {
+        response.sendRedirect("index.jsp");
+    }
 %>
 <html>
     <head>
@@ -37,7 +37,6 @@ if(session.getAttribute("nm_usuario")==null){
             </div>
             <div class="row">
                 <%@include file="_res/menu_lateral.jsp" %>
-                </div>
                 <div class="col-md-10">
                     <div class="col-md-6">
                         <ul class="breadcrumb" style="width: 100%;">
@@ -48,15 +47,15 @@ if(session.getAttribute("nm_usuario")==null){
                     </div>
                     <div class="col-md-6">
                         <form>
-                            <table style="width: 100%">
+                            <table style="width: 100%;">
                                 <tbody>
                                     <tr>
-                                        <td style="width:78%;">
-                                            <input type="search" placeholder="Digite algo" class="form-control" style="margin-top: auto;">
+                                        <td style="width: 78%;">
+                                            <input class="form-control" style="margin-top: auto;" type="search" placeholder="Digite algo">
                                         </td>
                                         <!--<span class="glyphicon glyphicon-search"></span>-->
                                         <td>&nbsp;&nbsp;
-                                            <input type="submit" class="active btn btn-primary" value="PESQUISAR" style="float:right; top: 0px; position: absolute; width: 20%;">
+                                            <input class="active btn btn-primary" style="top: 0px; width: 20%; float: right; position: absolute;" type="submit" value="PESQUISAR">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -129,6 +128,6 @@ if(session.getAttribute("nm_usuario")==null){
                 <p style="text-align:center; color: #0E47B2;" class="text-info">Todos os direitos reservados ELIT IT c 2014</p>
             </div>
         </div>
- </body>
+    </body>
 
 </html>
