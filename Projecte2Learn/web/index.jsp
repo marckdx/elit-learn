@@ -35,6 +35,8 @@
                         out.println("É professor.");
                     }else if(logins.get(0).getTp_login()== "0"){
                         out.println("É aluno.");
+                    }else{
+                        out.println("Não deu");
                     }
                 } else {
                     response.sendRedirect("index.jsp?action=loginerror");
