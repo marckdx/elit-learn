@@ -24,13 +24,13 @@ public class AvaliacaoDAO {
     ResultSet rs;
 
     /**
-     * Retorna todos os professores cadastrados no banco de dados
+     * Retorna todas as Avaliações
      *
      * @return
      * @throws Exception
      */
     public ArrayList<Avaliacao> getAvaliacao() throws Exception {
-        String sql = "SELECT * FROM tb_Avaliacao";
+        String sql = "SELECT * FROM tb_Avali";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
@@ -46,21 +46,16 @@ public class AvaliacaoDAO {
     }
 
     /**
-     * Retorna todos os professores de um determinado aluno
+     * Retorna todas as avaliações de um determinado professor
      *
-     * @param aluno
+     * @param Professor
      * @return
      */
-    public ArrayList<Avaliacao> getAvaliacaoAluno(Aluno aluno) throws Exception {
+    public ArrayList<Avaliacao> getAvaliacaoProfessor(Professor prof) throws Exception {
         String sql = "select * from tb_avali a "
-                + "join tb_cont c on(a.tb_cd_)"
-                + "join tb_disciplina d on(dp.tb_disciplina_cd_disciplina=d.cd_disciplina)"
-                + "join tb_curso_disciplina cd on(cd.tb_curso_disciplina_cd_disciplina=d.cd_disciplina)"
-                + "join tb_curso c on(c.cd_curso=cd.tb_curso_cd_curso)"
-                + "join tb_curso_turma ct on (c.cd_curso=ct.tb_curso_cd_curso)"
-                + "join tb_turma t on(t.cd_turma=ct.tb_turma_cd_turma)"
-                + "join tb_aluno a on(a.tb_turma_cd_turma=t.cd_turma)"
-                + "where a.cd_aluno = " + aluno.getCd_aluno();
+                + "join tb_cont c on(a.tb_cont_cd_cont=c.cd_cont)"
+                + "join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
+                + "where a.cd_aluno = " + prof.getCd_professor();
 
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
@@ -68,57 +63,45 @@ public class AvaliacaoDAO {
         ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
 
         while (rs.next()) {
-            Professor profe = new Professor(rs.getInt("cd_prof"), rs.getString("nm_prof"), rs.getInt("cd_cpf"), rs.getInt("tb_login_cd_login"));
-            profes.add(profe);
+            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"));
+            avaliacoes.add(avaliacao);
         }
         con.close();
         stmt.close();
         rs.close();
-        return profes;
+        return avaliacoes;
     }
 
     /**
-     *
-     * @param cd_prof
+     * Retorna todas as avaliações de um determinado aluno
+     * @param Aluno
      * @return
      * @throws Exception
      */
-    public ArrayList<Professor> getProfessor(int cd_prof) throws Exception {
-        String sql = "SELECT tp_login FROM tb_prof WHERE cd_prof=" + cd_prof;
+    public ArrayList<Avaliacao> getAvaliacaoAluno(Aluno aluno) throws Exception {
+        String sql = "SELECT * FROM tb_avali a"
+                + "join tb_cont c on(a.tb_cont_cd_cont=c.cd_cont)"
+                + "join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
+                + "join tb_discip_prof dp on(p.cd_prof = dp.tb_prof_cd_prof)"
+                + "join tb_discip d on(dp.tb_discip_cd_discip = d.cd_discip)"
+                + "join tb_curso_discip cd on(d.cd_discp = d.cd_tb_discip_cd_discip)"
+                + "join tb_cur cur on(cur.cd_cur = cd.cd_tb_cur_cd_cur)"
+                + "join tb_tur t on(t.cur_cd_cur = cur.cd_cur)"
+                + "join tb_alu alu on(alu.tb_tur_cd_tur = t.cd_tur)"
+                + "WHERE alu.cd_alu='"+aluno.getCd_aluno()+"'";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
-        ArrayList<Professor> profes = new ArrayList<Professor>();
+        ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
         while (rs.next()) {
-            Professor profe = new Professor(rs.getInt("cd_prof"), rs.getString("nm_prof"), rs.getInt("cd_cpf"), rs.getInt("tb_login_cd_login"));
-            profes.add(profe);
+            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_"), rs.getString("nm_avali"));
+            avaliacoes.add(avaliacao);
         }
         con.close();
         stmt.close();
         rs.close();
-        return profes;
+        return avaliacoes;
     }
 
-    /**
-     * Método que retorna o professor relacionado ao login
-     *
-     * @param tb_login_cd_login
-     * @return
-     * @throws Exception
-     */
-    public Professor getProfessorPorLogin(int tb_login_cd_login) throws Exception {
-        String sql = "SELECT * FROM tb_prof WHERE tb_login_cd_login=" + tb_login_cd_login;
-        con = new OracleConnector().getConnection();
-        stmt = con.createStatement();
-        rs = stmt.executeQuery(sql);
-        Professor profe = null;
-        while (rs.next()) {
-            profe = new Professor(rs.getInt("cd_prof"), rs.getString("nm_prof"), rs.getInt("cd_cpf"), rs.getInt("tb_login_cd_login"));
-        }
-        con.close();
-        stmt.close();
-        rs.close();
-        return profe;
-    }
 
 }
