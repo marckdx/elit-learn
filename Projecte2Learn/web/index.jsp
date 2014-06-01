@@ -110,14 +110,7 @@
 
                 </div>
                 <br>
-                <ul class="breadcrumb text-left">
-                    <li>
-                        <a href="index.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="login.php">Login</a>
-                    </li>
-                </ul>
+              
             </div>
             <div class="row">
                 <div class="col-md-12">
