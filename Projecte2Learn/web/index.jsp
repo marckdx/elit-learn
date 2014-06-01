@@ -3,6 +3,8 @@
     Created on : 31/05/2014, 09:32:08
     Author     : Marco Aurélio
 --%>
+<%@page import="com.elit2.app.control.ProfessorDAO"%>
+<%@page import="com.elit2.app.model.Professor"%>
 <%@page import="com.elit2.app.control.LoginDAO"%>
 <%@page import="com.elit2.app.model.Login"%>
 <%@page import="java.util.ArrayList"%>
@@ -32,7 +34,9 @@
                 ArrayList<Login> logins = logDao.getLogin(request.getParameter("nm_email"), request.getParameter("nm_senha"));
                 if(logins.size() > 0){
                     if(logins.get(0).getTp_login()== "1"){
-                        out.println("É professor.");
+                        ProfessorDAO profDao = new ProfessorDAO();
+                        Professor prof = profDao.getProfessorPorLogin(logins.get(0).getCd_login());
+                        session.setAttribute("professor", prof);
                     }else if(logins.get(0).getTp_login()== "0"){
                         out.println("É aluno.");
                     }else{
