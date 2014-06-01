@@ -1,7 +1,5 @@
 package com.elit2.app.model;
-/**
- * @author Brunno
- */
+/** @author Brunno */
 public class Disciplina {
     private int cd_disciplina;
     private String nm_disciplina;

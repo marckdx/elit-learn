@@ -1,6 +1,7 @@
 package com.elit2.app.control;
 
 import com.elit2.app.model.Conteudo;
+import com.elit2.app.model.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -12,7 +13,7 @@ public class ConteudoDAO {
     Statement stmt;
     ResultSet rs;
 
-    public ArrayList<Conteudo> getConteudo(usuario) throws Exception {
+    public ArrayList<Conteudo> getConteudo(String usuario, String senha) throws Exception {
         String sql = "SELECT * FROM tb_conteudo WHERE nm_email = '" + usuario + "'"
                 + " AND nm_senha= '" + senha + "'";
         con = new OracleConnector().getConnection();
