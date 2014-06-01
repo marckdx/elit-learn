@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="1B2DAE36-C07A-3613-0EEB-19BEA7F5C764" name="tb_aluno_tb_turma_FK">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>E0ACB385-73A8-BA79-D609-AA7CC92EC459</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<containerWithKeyObject>2F9787E1-65FE-23E0-4533-29313E510662</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>4DEEB653-E8D1-5E6A-5060-D54E0A2DFAA9</localFKIndex>
+<keyObject>179339A5-D21E-E77D-2FF0-BA6093729D35</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

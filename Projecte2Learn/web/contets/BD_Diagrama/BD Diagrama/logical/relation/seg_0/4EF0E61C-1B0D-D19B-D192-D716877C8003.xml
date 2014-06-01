@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="tb_avali_stat" directorySegmentName="seg_0" id="4EF0E61C-1B0D-D19B-D192-D716877C8003">
+<createdBy>Valmir Note</createdBy>
+<createdTime>2014-05-29 20:46:23 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="true"/>
+</engineerTo>
+<sourcePk>C19F9D81-15DB-DE7E-C9B8-63EDFC5ED0B3</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>2D163135-C419-29F9-90F7-249398D01C19</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>EAFD97CC-5C24-3322-5008-5DB187489577</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

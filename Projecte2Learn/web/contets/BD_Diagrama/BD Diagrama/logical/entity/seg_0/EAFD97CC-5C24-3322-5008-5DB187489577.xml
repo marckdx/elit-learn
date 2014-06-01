@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="EAFD97CC-5C24-3322-5008-5DB187489577" name="tb_avali">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<importedID>75FB274F-CFAA-31D0-308D-AFAC6032782D</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cd_avali" id="066F5F5C-BA6F-03EE-6856-7332CC8E5F40">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>8CA23031-522F-58E5-E4AA-AF2708D3E676</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="false"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+<Attribute name="cd_cont" id="7671966A-5E9A-CCC7-1093-DC1238C1755A">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>3BDB1DEB-F97D-9D3E-E9FD-48D19D950F94</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<importedID>D6ADBC82-49FE-EAF9-9359-635DAD67FA45</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="true"/>
+</engineerTo>
+<referedAttribute>B369805F-3D6A-9123-BA90-2E6A3DF3E074</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+<Attribute name="cd_imag" id="89D3278A-9966-8F7B-D677-885427C0F837">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>C5C689C7-5457-A768-A6CB-0BB825BE1444</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<importedID>BED1509E-F718-AC04-7479-B1D79CC0567B</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="true"/>
+</engineerTo>
+<referedAttribute>A0CB2A02-85E5-A9A6-613D-C373A71720C8</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+<Attribute name="nm_aval" id="708693FB-A00B-B230-BA02-4455C2FF5451">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>D44E2A76-19D2-CE6F-6A28-D10D1C1B0072</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="false"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+</Attribute>
+<Attribute name="cd_stat" id="F2D6FC96-353B-1C9E-C150-0EF34A06D208">
+<createdBy>Valmir Note</createdBy>
+<createdTime>2014-05-29 20:46:23 UTC</createdTime>
+<generatorID>4EF0E61C-1B0D-D19B-D192-D716877C8003</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="true"/>
+</engineerTo>
+<referedAttribute>3862403E-AEE8-C281-F75D-ECDEB04D968F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DA895BC5-AFBB-E36D-62AF-2160E10C420F" name="tb avaliacao PK">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>97C981B9-53E9-2CB8-E01F-1F6D462C1B02</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>066F5F5C-BA6F-03EE-6856-7332CC8E5F40</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

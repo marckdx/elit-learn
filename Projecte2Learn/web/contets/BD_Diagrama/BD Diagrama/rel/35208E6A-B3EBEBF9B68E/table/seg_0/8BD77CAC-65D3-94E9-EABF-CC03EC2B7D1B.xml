@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8BD77CAC-65D3-94E9-EABF-CC03EC2B7D1B" name="tb_cur_perio">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="tb_curso_cd_curso" id="80F763C1-D6E3-C75C-4484-2E5CDB0D689D">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>0785899A-1945-38BA-FBBF-640E5A18CCBF</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="55659DC3-BB8F-CA73-5282-EF4DE28AFF90" referredColumn="0785899A-1945-38BA-FBBF-640E5A18CCBF"/>
+</associations>
+</Column>
+<Column name="tb_periodo_cd_periodo" id="DA545225-EF84-63E0-2699-821404259B4F">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<delegate>05DDB532-5DBC-2E03-432A-925ECFB31A3E</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4B1DE17D-F28C-ED0A-C8D6-5D8FEC86F919" referredColumn="05DDB532-5DBC-2E03-432A-925ECFB31A3E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="54DBA7E4-CB36-D92D-635B-A3EB2F5949A8" name="tb_curso_periodo__IDX">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80F763C1-D6E3-C75C-4484-2E5CDB0D689D"/>
+<colUsage columnID="DA545225-EF84-63E0-2699-821404259B4F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4EA613EA-C4E4-4E80-36E8-5D47D5EC7010" name="FK_ASS_9">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>52A4B527-C638-9176-F2F4-9BF680ADB318</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80F763C1-D6E3-C75C-4484-2E5CDB0D689D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9986516A-2A04-C5ED-62D3-2237287A8178" name="FK_ASS_10">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>52A4B527-C638-9176-F2F4-9BF680ADB318</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DA545225-EF84-63E0-2699-821404259B4F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

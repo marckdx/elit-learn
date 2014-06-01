@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1929C59F-BCB8-CAC9-3307-53595F15046E" name="tb_alu">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<importedID>85BAE730-8B5F-603C-BC29-21AB62D7855E</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cd_alu" id="2755A7D7-B04F-A3CC-638D-2FCD0EEF0D1D">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>B5A1B777-E98C-CD52-5674-08ADED85C05C</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="false"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+<Attribute name="nm_alu" id="235A7B11-CDA1-1B47-D8B3-EF6C2AB7FE1D">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>F59AD224-D8E0-8281-499F-1744FAD1675D</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="false"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+</Attribute>
+<Attribute name="cd_tur" id="7C885D4C-268D-1B4A-73D6-040A86761D60">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>E0ACB385-73A8-BA79-D609-AA7CC92EC459</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<importedID>8A2D9F84-961B-2376-2DCB-79E184265697</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="true"/>
+</engineerTo>
+<referedAttribute>4F40AFBF-EC76-965C-FF3F-38E878437E4C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+<Attribute name="cd_login" id="860617C8-7778-BCB1-06D0-233C544FC87D">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>5071F453-7BAF-5A04-FD35-833EBDCCA848</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<importedID>ACEA4DA6-18CA-009A-69CC-F0ACCBA68686</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="true"/>
+</engineerTo>
+<referedAttribute>8C9A1D50-2F82-6A5C-4070-A435AE12AC56</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+<Attribute name="cd_niv" id="493624DB-8946-79B8-89FB-F6EF74A77B7F">
+<createdBy>Valmir Note</createdBy>
+<createdTime>2014-05-29 19:35:47 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="false"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+<Attribute name="cd_cur" id="4518271C-6121-7366-8C8C-6D10B669F624">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:33:05 UTC</createdTime>
+<generatorID>E0ACB385-73A8-BA79-D609-AA7CC92EC459</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="true"/>
+</engineerTo>
+<referedAttribute>EEA9E21C-32AC-534A-BE48-717F6401F990</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2596079B-4313-9A94-7AEA-148A3662250D" name="tb aluno PK">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-05-29 04:15:09 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>B2E1BB92-3951-207D-A13B-2EBD26D3BA2A</importedID>
+<engineerTo>
+<item key="35208E6A-E356-A2F0-F539-B3EBEBF9B68E" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2755A7D7-B04F-A3CC-638D-2FCD0EEF0D1D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

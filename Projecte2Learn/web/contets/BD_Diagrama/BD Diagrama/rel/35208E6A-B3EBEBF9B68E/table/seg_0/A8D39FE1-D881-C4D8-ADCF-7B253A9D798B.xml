@@ -1,0 +1,149 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A8D39FE1-D881-C4D8-ADCF-7B253A9D798B" name="tb_avali">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>EAFD97CC-5C24-3322-5008-5DB187489577</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cd_avali" id="233528F8-4138-4E51-1332-5CD3995C6530">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>066F5F5C-BA6F-03EE-6856-7332CC8E5F40</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tb_conteudo_cd_conteudo" id="3F98A7E2-8466-C30A-20F7-21C808A19881">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>7671966A-5E9A-CCC7-1093-DC1238C1755A</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>4872096E-16CE-B5F9-1C9F-2EE273143983</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AEADB050-B17B-1EFF-1BCC-61C8D3F7D65B" referredColumn="4872096E-16CE-B5F9-1C9F-2EE273143983"/>
+</associations>
+</Column>
+<Column name="tb_imagem_cd_imagem" id="4C5AE57A-5505-4626-85F5-626D075DA276">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>89D3278A-9966-8F7B-D677-885427C0F837</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>880D2281-9509-FEB7-0FD9-5AAC5FFD1090</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1EE9C970-158C-B207-F974-F64E060248AF" referredColumn="880D2281-9509-FEB7-0FD9-5AAC5FFD1090"/>
+</associations>
+</Column>
+<Column name="nm_aval" id="83F28372-4C88-5456-439B-6541AB4B5F67">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>708693FB-A00B-B230-BA02-4455C2FF5451</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tb_status_cd_status" id="65812572-26D5-2E6E-B9B3-21B3D449AE45">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>F2D6FC96-353B-1C9E-C150-0EF34A06D208</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>8F384108-5392-E752-152F-7664985BB8F4</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F12F6FB0-4FC9-6703-77E1-D302F7BA2F08" referredColumn="8F384108-5392-E752-152F-7664985BB8F4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B3A09709-C7E4-3F61-FE7E-A9147D8275B2" name="tb_avaliacao_PK">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>DA895BC5-AFBB-E36D-62AF-2160E10C420F</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="233528F8-4138-4E51-1332-5CD3995C6530"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="75CA7C4A-C226-D741-1775-63D721691482" name="tb_avaliacao__IDX">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>4EF0E61C-1B0D-D19B-D192-D716877C8003</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="65812572-26D5-2E6E-B9B3-21B3D449AE45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7949416A-236A-D665-73B1-88E22A16B635" name="tb_avaliacao__IDXv1">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>C5C689C7-5457-A768-A6CB-0BB825BE1444</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="4C5AE57A-5505-4626-85F5-626D075DA276"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="65D91681-691C-BFBB-CEF8-0480756C0BD5" name="tb_avaliacao_tb_status_FK">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>4EF0E61C-1B0D-D19B-D192-D716877C8003</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="65812572-26D5-2E6E-B9B3-21B3D449AE45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="97D27E7C-6C46-D70C-0EA8-D911AEE82469" name="tb_avaliacao_tb_conteudo_FK">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>3BDB1DEB-F97D-9D3E-E9FD-48D19D950F94</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3F98A7E2-8466-C30A-20F7-21C808A19881"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E452CA72-8775-0189-B2CB-87B42F3CBDF6" name="tb_avaliacao_tb_imagem_FK">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>C5C689C7-5457-A768-A6CB-0BB825BE1444</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C5AE57A-5505-4626-85F5-626D075DA276"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

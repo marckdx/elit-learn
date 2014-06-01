@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C9B6C796-E5A9-7134-7D0B-39BBCC6C8182" name="tb_stat">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>2D163135-C419-29F9-90F7-249398D01C19</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cd_stat" id="8F384108-5392-E752-152F-7664985BB8F4">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>3862403E-AEE8-C281-F75D-ECDEB04D968F</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ic_stat" id="A9C62BC3-E49F-5E1A-8331-97F6DC1F2270">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>59C1C6FA-F397-58D4-0BD8-D1F87BA07840</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cd_alu" id="8FC673A2-5D3C-671C-5069-1DB9D3F78C6E">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>DEF0226D-AF3E-6CD7-D791-9BFAF5D5A548</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="37AA54AE-84BD-9C93-FD0F-46F46A8C0BC3" name="tb_status_PK">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>C19F9D81-15DB-DE7E-C9B8-63EDFC5ED0B3</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8F384108-5392-E752-152F-7664985BB8F4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

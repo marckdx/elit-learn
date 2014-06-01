@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0E371713-A7FB-045A-4677-367D01FE643D" name="tb_avali_quest">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="tb_avaliacao_cd_avaliacao" id="E3987094-714D-A341-AF18-AB1A4ED2FB4C">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>233528F8-4138-4E51-1332-5CD3995C6530</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EDF83DF0-B1BA-8301-DB46-8C74CB9A1B35" referredColumn="233528F8-4138-4E51-1332-5CD3995C6530"/>
+</associations>
+</Column>
+<Column name="tb_questao_cd_questao" id="B16ADF17-F3AD-8CE5-49B4-3D3769EF0508">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>7DBC5592-E8FF-E8D6-67C8-35F3D1F2D8BA</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7072E485-E5CB-684A-3EDD-F5ECADF6BDBD" referredColumn="7DBC5592-E8FF-E8D6-67C8-35F3D1F2D8BA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4F152712-F832-8A90-82E0-7B9CAC11EA22" name="tb_avaliacao_questao__IDX">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E3987094-714D-A341-AF18-AB1A4ED2FB4C"/>
+<colUsage columnID="B16ADF17-F3AD-8CE5-49B4-3D3769EF0508"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="256F73AE-0DFC-F761-F2C9-C52BB720C48B" name="FK_ASS_2">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>1C5CF50D-A421-13D4-1316-BD936665306D</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E3987094-714D-A341-AF18-AB1A4ED2FB4C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="55523C8C-D62B-01D0-DCC9-4160F26D393F" name="FK_ASS_3">
+<createdBy>Valmir Desktop</createdBy>
+<createdTime>2014-06-01 03:38:50 UTC</createdTime>
+<generatorID>1C5CF50D-A421-13D4-1316-BD936665306D</generatorID>
+<ownerDesignName>BD Diagrama</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B16ADF17-F3AD-8CE5-49B4-3D3769EF0508"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
