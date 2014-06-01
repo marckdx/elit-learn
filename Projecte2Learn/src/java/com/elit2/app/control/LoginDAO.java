@@ -16,7 +16,7 @@ public class LoginDAO {
     ResultSet rs;
 
     public ArrayList<Login> getLogin(String usuario, String senha) throws Exception {
-        String sql = "SELECT tp_login FROM tb_login WHERE nm_email = '" + usuario + "'"
+        String sql = "SELECT * FROM tb_login WHERE nm_email = '" + usuario + "'"
                 + " AND nm_senha= '" + senha + "'";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
