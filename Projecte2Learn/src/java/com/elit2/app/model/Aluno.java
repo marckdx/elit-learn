@@ -10,7 +10,7 @@ package com.elit2.app.model;
  *
  * @author Marco Aurélio
  */
-public class Aluno {
+public class Aluno extends Usuario{
     private int cd_aluno;
     private String nm_aluno;
     private int cd_nivel;

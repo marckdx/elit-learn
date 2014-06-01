@@ -51,14 +51,14 @@ public class ProfessorDAO {
      * @return
      */
     public ArrayList<Professor> getProfessorAlunos(Aluno aluno) throws Exception {
-        String sql = "select p.nm_professor from tb_professor p \n"
-                + "join tb_disciplina_professor dp on(dp.tb_professor_cd_professor=p.cd_professor)\n"
-                + "join tb_disciplina d on (dp.tb_disciplina_cd_disciplina=d.cd_disciplina) \n"
-                + "join tb_curso_disciplina cd on (cd.tb_curso_disciplina_cd_disciplina=d.cd_disciplina)\n"
-                + "join tb_curso c on (c.cd_curso=cd.tb_curso_cd_curso)\n"
-                + "join tb_curso_turma ct on (c.cd_curso=ct.tb_curso_cd_curso)\n"
-                + "join tb_turma t on(t.cd_turma=ct.tb_turma_cd_turma)\n"
-                + "join tb_aluno a on(a.tb_turma_cd_turma=t.cd_turma)\n"
+        String sql = "select * from tb_professor p "
+                + "join tb_disciplina_professor dp on(dp.tb_professor_cd_professor=p.cd_professor)"
+                + "join tb_disciplina d on(dp.tb_disciplina_cd_disciplina=d.cd_disciplina)"
+                + "join tb_curso_disciplina cd on(cd.tb_curso_disciplina_cd_disciplina=d.cd_disciplina)"
+                + "join tb_curso c on(c.cd_curso=cd.tb_curso_cd_curso)"
+                + "join tb_curso_turma ct on (c.cd_curso=ct.tb_curso_cd_curso)"
+                + "join tb_turma t on(t.cd_turma=ct.tb_turma_cd_turma)"
+                + "join tb_aluno a on(a.tb_turma_cd_turma=t.cd_turma)"
                 + "where a.cd_aluno = " + aluno.getCd_aluno();
 
         con = new OracleConnector().getConnection();

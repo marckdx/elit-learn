@@ -1,6 +1,6 @@
 package com.elit2.app.model;
 
-public class Professor {
+public class Professor extends Usuario{
     private int cd_professor;
     private String nm_professor;
     private int cd_cpf;
