@@ -3,9 +3,20 @@
     Created on : 01/06/2014, 13:47:14
     Author     : Jhonatan
 --%>
+<%@page import="com.elit2.app.control.AlunoDAO"%>
+<%@page import="com.elit2.app.control.ProfessorDAO"%>
+<%@page import="com.elit2.app.model.Professor"%>
+<%@page import="com.elit2.app.control.LoginDAO"%>
+<%@page import="com.elit2.app.model.Login"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.elit2.app.control.OracleConnector"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%
+    if (session.getAttribute("professor") != null || session.getAttribute("aluno") != null) {
+        response.sendRedirect("dashboard.jsp?action=redirect");
+    }
+%>
 <html>
 
 <head>
@@ -46,7 +57,6 @@
             <a href="#" style="color:white;">Contatos</a>
           </li>
         </ul>
-          <%//JHOW JHOW%>
 
         <p class="navbar-text navbar-right" style="color:white;">Bem-vindo, Sérgio Fortuna</p>
       </div>
@@ -72,12 +82,10 @@
             <h3 class="panel-title text-center">MENU</h3>
           </div>
           <div class="panel-body" style="width:100%;">
-
-            <a class="active btn btn-lg btn-success" style="width: 100%;">Inicio</a>
-
-            <a class="btn btn-primary" style="width:100%">Disciplinas</a>
-            <a class="btn btn-primary" style="width:100%">Conteúdos</a>
-            <a class="btn btn-primary" style="width:100%">Avaliações</a>
+            <a href ="index.jsp" class="active btn btn-lg btn-success"style="width: 100%;">Inicio</a>
+            <a href ="dashboard_professor_parte1" class="btn btn-primary" style="width:100%">Disciplinas</a>
+            <a href="conteudo.jsp"   class="btn btn-primary" style="width:100%">Conteúdos</a>
+            <a href="avaliacao.jsp" class="btn btn-primary" style="width:100%">Avaliações</a>
           </div>
         </div>
       </div>
@@ -99,42 +107,27 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>Código</th>
                   <th>Nome</th>
-                  <th>Sobrenome</th>
-                  <th>nickname</th>
+                  <th>Turma</th>
+                  <th>Login</th>
+                  <th>Nível</th>
+                  <th>Curso</th>
+
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Jhonatan&nbsp;</td>
-                  <td>Rodrigues</td>
-                  <td>@jhoonyrodrigues</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Gilberto</td>
-                  <td>Donizzeti</td>
-                  <td>@ursogil</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>João</td>
-                  <td>Leal</td>
-                  <td>@joaoneves</td>
-                </tr>
+                <%
+                    AlunoDAO
+                
+                %>
               </tbody>
             </table>
           </div>
         </div>
 
       </div>
-      <div class="col-md-1">
-
-
-
-      </div>
+      
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
