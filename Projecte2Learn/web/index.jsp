@@ -3,6 +3,7 @@
     Created on : 31/05/2014, 09:32:08
     Author     : Marco Aurélio
 --%>
+<%@page import="com.elit2.app.control.AlunoDAO"%>
 <%@page import="com.elit2.app.control.ProfessorDAO"%>
 <%@page import="com.elit2.app.model.Professor"%>
 <%@page import="com.elit2.app.control.LoginDAO"%>
@@ -46,6 +47,7 @@
                         request.getSession().setAttribute("professor", prof);
                         response.sendRedirect("dashboard.jsp?tp=pes&con=true");
                     } else if (logins.get(0).getTp_login().charAt(0) == '0') {
+                        AlunoDAO alu = new  AlunoDAO();
                         out.println("É aluno.");
                     } else {
                         out.println("Não deu");
