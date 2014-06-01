@@ -14,8 +14,7 @@ public class ConteudoDAO {
     ResultSet rs;
 
     public ArrayList<Conteudo> getConteudo(String usuario, String senha) throws Exception {
-        String sql = "SELECT * FROM tb_conteudo WHERE nm_email = '" + usuario + "'"
-                + " AND nm_senha= '" + senha + "'";
+        String sql = "SELECT * FROM tb_conteudo";
 
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
