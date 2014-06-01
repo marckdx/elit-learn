@@ -15,7 +15,7 @@ public class OracleConnector {
     private String senha; 
     
     public OracleConnector(){
-        this.servername = "201.42.16.147";
+        this.servername = "valmirsl.no-ip.org";
         this.login = "hr";
         this.senha = "hr";
     }

@@ -13,6 +13,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    //request.getSession().setAttribute("professor", new Professor(1, "marco@live.com", 1, 1));
     if (session.getAttribute("professor") != null || session.getAttribute("aluno") != null) {
         response.sendRedirect("dashboard.jsp?action=redirect");
     }
@@ -38,20 +39,22 @@
                 LoginDAO logDao = new LoginDAO();
                 ArrayList<Login> logins = logDao.getLogin(request.getParameter("nm_email"), request.getParameter("nm_senha"));
                 if (logins.size() > 0) {
-                    out.println(logins.get(0).getTp_login());
                     if (logins.get(0).getTp_login().charAt(0) == '1') {
                         ProfessorDAO profDao = new ProfessorDAO();
                         Professor prof = profDao.getProfessorPorLogin(logins.get(0).getCd_login());
                         session.setAttribute("professor", prof);
+                        out.println("<script> alert('"+prof.getNm_professor()+"'); </script>");
                         response.sendRedirect("dashboard.jsp?tp=pes&con=true");
                     } else if (logins.get(0).getTp_login().charAt(0) == '0') {
-                        AlunoDAO alu = new  AlunoDAO();
-                        out.println("É aluno.");
+                        AlunoDAO aluDAO = new AlunoDAO();
+                        Aluno aluno = aluDAO.getAlunoPorLogin(logins.get(0).getCd_login());
+                        session.setAttribute("aluno", aluno);
+                        response.sendRedirect("dashboard.jsp?tp=pes&con=true");
                     } else {
                          response.sendRedirect("index.jsp?action=idusernotfound");
                     }
                 } else {
-                    response.sendRedirect("index.jsp?action=loginerror");
+                     response.sendRedirect("index.jsp?action=loginerror");
                 }
             }
         %>
@@ -88,10 +91,10 @@
 
 
                     <div class="col-md-4">
-                        <%if (request.getParameter("action")!=null) {%>
+                        <%if (request.getParameter("action") != null) {%>
                         <div class="alert alert-danger" style="text-align: center;">Combinação e-mail/senha inválidos.</div>
                         <%}%>
-                        <form role="form">
+                        <form role="form" action="index.jsp" method="POST">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input class="form-control" name="nm_email" id="exampleInputEmail1" placeholder="Enter email" type="email">
