@@ -20,10 +20,10 @@ public class OracleConnector {
         this.senha = "hr";
     }
     
-    public OracleConnector(String pServername,String pLogin, String pSenha){
-        this.servername = pServername;
-        this.login = pLogin;
-        this.senha = pSenha;
+    public OracleConnector(String servername,String login, String senha){
+        this.servername = servername;
+        this.login = login;
+        this.senha = senha;
     }
     
     public Connection getConnection() throws Exception {

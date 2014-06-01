@@ -1,7 +1,7 @@
 
 package com.elit2.app.control;
 
-import static com.elit2.app.control.OracleConnector.getConnection;
+
 import com.elit2.app.model.Login;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -18,7 +18,7 @@ public class LoginDAO {
     public ArrayList<Login> getLogin(String usuario, String senha) throws Exception {
         String sql = "SELECT tp_login FROM tb_login WHERE nm_email = '" + usuario + "'"
                 + " AND nm_senha= '" + senha + "'";
-        con = getConnection();
+        con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
         ArrayList<Login> logins = new ArrayList<Login>();
@@ -33,7 +33,7 @@ public class LoginDAO {
     }
     
     public int setLogin(Login login) throws Exception{
-        con = getConnection();
+        con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         int result = stmt.executeUpdate("INSERT INTO tb_login VALUES ("+login.getCd_login()+",'"+login.getNm_email()+"','"+login.getNm_senha()+"','"+login.getTp_login()+"')");
         return result;
