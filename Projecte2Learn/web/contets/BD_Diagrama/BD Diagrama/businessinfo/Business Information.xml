@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="292F999D-4392-DA08-E20F-96BBEEAB0DB1">
-<createdBy>Valmir Desktop</createdBy>
-<createdTime>2014-05-29 04:13:16 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>BD Diagrama</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</BusinessInfoDesign>
