@@ -104,6 +104,18 @@ public class AvaliacaoDAO {
         return avaliacoes;
     }
 
+    /**
+     * 
+     * @param Avaliacao
+     * @return
+     * @throws Exception 
+     */
+    public int setConteudo(Avaliacao avaliacao) throws Exception {
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        int result = stmt.executeUpdate("INSERT INTO tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
+        return result;
+    }
 
 
 }
