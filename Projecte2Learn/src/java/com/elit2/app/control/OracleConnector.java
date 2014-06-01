@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class OracleConnector {
 
-    private static final String servername = "localhost";
+    private static final String servername = "201.68.234.137";
     private static final String login = "hr";
     private static final String senha = "hr";
 
