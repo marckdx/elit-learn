@@ -36,7 +36,7 @@ public class AvaliacaoDAO {
         rs = stmt.executeQuery(sql);
         ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
         while (rs.next()) {
-            Avaliacao avali = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"));
+            Avaliacao avali = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"), rs.getString("nm_prof"),rs.getString("nm_discip"),rs.getBoolean("ic_stat"));
             avaliacoes.add(avali);
         }
         con.close();
@@ -159,13 +159,13 @@ public class AvaliacaoDAO {
      * @return
      * @throws Exception
      */
-    public void setInsereConteudo(Avaliacao avaliacao) throws Exception {
+    public void setInsereAvaliacao(Avaliacao avaliacao) throws Exception {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
-        stmt.executeUpdate("INSERT INTO tb_avali VALUES ('" + avaliacao.getCd_avaliacao() + "''," + avaliacao.getNm_avaliacao() + "')");
-    }
-
-    public void setDeleteConteudo(Avaliacao avaliacao) throws Exception {
+        stmt.executeUpdate("INSERT INTO tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
+   }
+    
+     public void setDeleteAvaliacao(Avaliacao avaliacao) throws Exception {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         stmt.executeUpdate("DELETE ROM tb_avali VALUES ('" + avaliacao.getCd_avaliacao() + "''," + avaliacao.getNm_avaliacao() + "')"

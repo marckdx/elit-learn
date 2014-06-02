@@ -4,6 +4,7 @@
     Author     : Marco Aurélio
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.elit2.app.control.AvaliacaoDAO" %>
 <%@page import="com.elit2.app.model.Avaliacao" %>
@@ -11,15 +12,13 @@
 <%@page import="com.elit2.app.model.Aluno" %>
 
 <%
+    Aluno aluno = (Aluno) session.getAttribute("aluno");
+    AvaliacaoDAO avaliacaodao = new AvaliacaoDAO();
     //request.getSession().setAttribute("professor", new Professor(1, "marco@live.com", 1, 1));
     if (session.getAttribute("professor") == null && session.getAttribute("aluno") == null) {
         response.sendRedirect("index.jsp");
     } else if (session.getAttribute("professor") != null) {
-        Professor professor = (Professor) session.getAttribute("professor");
-        AvaliacaoDAO avaliacaodao = new AvaliacaoDAO();
-    } else {
-        Aluno aluno = (Aluno) session.getAttribute("aluno");
-        AvaliacaoDAO avaliacaodao = new AvaliacaoDAO();
+        response.sendRedirect("index.jsp");
     }
 %>
 <!DOCTYPE html>
@@ -57,7 +56,7 @@
                 <div class="col-md-10">
 
                     <div class="col-md-6">
-                        <form>
+                        <form method="get" action="">
                             <table style="width: 100%">
                                 <tbody>
                                     <tr>
@@ -66,7 +65,7 @@
                                         </td>
                                         <!--<span class="glyphicon glyphicon-search"></span>-->
                                         <td>&nbsp;&nbsp;
-                                            <input class="active btn btn-primary" value="PESQUISAR" style="float:right; top: 0px; position: absolute; width: 20%;">
+                                            <input class="active btn btn-primary" name="pesquisar" value="PESQUISAR" style="float:right; top: 0px; position: absolute; width: 20%;">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -87,31 +86,36 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%
+                                if (request.getParameter("pesquisa") != null) {
+                                    ArrayList<Avaliacao> avaliacoes = avaliacaodao.getAvaliacaoAluno(aluno);
+                                    int contador = 0;
+                                    for (Avaliacao valor : avaliacoes) {
+                                        contador++;
+                            %>
                             <tr>
-                                <td>1</td>
-                                <td>Globalização</td>
-                                <td>Gilberto</td>
-                                <td>Geografia</td>
-                                <td>Não</td>
-
+                                <td><%=contador%></td>
+                                <td><%=valor.getNm_avaliacao()%></td>
+                                <td><%=valor.getNm_professor()%></td>
+                                <td><%=valor.getNm_disciplina()%></td>
+                                <td><%if (valor.isIc_status() == true) {
+                                        out.print("Sim");
+                                    } else {
+                                        out.print("Não");
+                                    }%></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Polinômios</td>
-                                <td>Gilberto</td>
-                                <td>Matemática</td>
-                                <td>Não</td>
+                            <%
+    //  valor.
+                                }
 
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Brunno</td>
-                                <td>Futebol</td>
-                                <td>Ed. Física</td>
-                                <td>Sim</td>
-
-                            </tr>
+                            %>
                         </tbody>
+
+                        <%                                } else {
+
+                            }
+                        %>               
+
                     </table>
                 </div>
             </div>
