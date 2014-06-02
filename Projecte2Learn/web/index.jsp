@@ -34,22 +34,20 @@
     </head>
     <body>
         <%@include  file="_res/menu.jsp" %>
-        <%
+        <%            
             if (request.getParameter("nm_email") != null && request.getParameter("nm_senha") != null) {
                 LoginDAO logDao = new LoginDAO();
                 ArrayList<Login> logins = null;
                 try {
                     logins = logDao.getLogin(request.getParameter("nm_email"), request.getParameter("nm_senha"));
-                } catch (Exception ex) {
-                    response.sendRedirect("erro.jsp?ex="+ex.getMessage());
-                }
+                
                 if (logins.size() > 0) {
-                    if (logins.get(0).getTp_login().charAt(0) == '1') {
+                    if (logins.get(0).getTp_login() == '1') {
                         ProfessorDAO profDao = new ProfessorDAO();
                         Professor prof = profDao.getProfessorPorLogin(logins.get(0).getCd_login());
                         session.setAttribute("professor", prof);
                         response.sendRedirect("dashboard.jsp?page=conteudos");
-                    } else if (logins.get(0).getTp_login().charAt(0) == '0') {
+                    } else if (logins.get(0).getTp_login() == '0') {
                         AlunoDAO aluDAO = new AlunoDAO();
                         Aluno aluno = aluDAO.getAlunoPorLogin(logins.get(0).getCd_login());
                         session.setAttribute("aluno", aluno);
@@ -59,6 +57,10 @@
                     }
                 } else {
                     response.sendRedirect("index.jsp?action=loginerror");
+                }
+                
+                } catch (Exception ex) {
+                    response.sendRedirect("erro.jsp?errorcode=" + ex.getMessage());
                 }
             }
         %>
