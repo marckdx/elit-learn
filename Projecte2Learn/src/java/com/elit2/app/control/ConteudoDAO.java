@@ -34,13 +34,12 @@ public class ConteudoDAO {
         return conteudos;
     }
 
-    public int setConteudo(Conteudo conteudo) throws Exception {
+    public void setConteudo(Conteudo conteudo) throws Exception {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
-        int result = stmt.executeUpdate("INSERT INTO tb_login VALUES ("+conteudo.getCd_conteudo()+",'"+conteudo.getTbProfessor_cd_professor()+"',"
+        stmt.executeUpdate("INSERT INTO tb_login VALUES ("+conteudo.getCd_conteudo()+",'"+conteudo.getTbProfessor_cd_professor()+"',"
                 + "                      '"+conteudo.getTbProfessor_cd_cpf_professor()+"','"+conteudo.getTbImagem_cd_imagem()+"'"
                 + "'"+conteudo.getNm_conteudo()+"', '"+conteudo.getDs_conteudo()+"', '"+conteudo.getCd_status()+"')");
-                                    
-        return result;
+                                   
     }
 }

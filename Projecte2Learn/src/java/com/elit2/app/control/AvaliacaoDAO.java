@@ -85,7 +85,7 @@ public class AvaliacaoDAO {
                 + "join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
                 + "join tb_discip_prof dp on(p.cd_prof = dp.tb_prof_cd_prof)"
                 + "join tb_discip d on(dp.tb_discip_cd_discip = d.cd_discip)"
-                + "join tb_curso_discip cd on(d.cd_discp = d.cd_tb_discip_cd_discip)"
+                + "join tb_cur_discip cd on(d.cd_discp = d.cd_tb_discip_cd_discip)"
                 + "join tb_cur cur on(cur.cd_cur = cd.cd_tb_cur_cd_cur)"
                 + "join tb_tur t on(t.cur_cd_cur = cur.cd_cur)"
                 + "join tb_alu alu on(alu.tb_tur_cd_tur = t.cd_tur)"
@@ -105,16 +105,23 @@ public class AvaliacaoDAO {
     }
 
     /**
-     * 
+     * Faz a inserção de valores
      * @param Avaliacao
      * @return
      * @throws Exception 
      */
-    public int setConteudo(Avaliacao avaliacao) throws Exception {
+    public void setInsereConteudo(Avaliacao avaliacao) throws Exception {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
-        int result = stmt.executeUpdate("INSERT INTO tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
-        return result;
+        stmt.executeUpdate("INSERT INTO tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
+   }
+    
+     public void setDeleteConteudo(Avaliacao avaliacao) throws Exception {
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        stmt.executeUpdate("DELETE ROM tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')"
+                + "WHERE cd_avali='"+avaliacao.getCd_avaliacao()
+                + "");
     }
 
 
