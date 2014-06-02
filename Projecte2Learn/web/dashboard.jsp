@@ -31,10 +31,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div>
-                        <img src='img/emblem_library.png'>
+                        
                     </div>
                     <div class="page-header">
-                        <h1 class="text-center text-primary">E²-LEARN
+                        
+                        <h1 class="text-center text-primary"><img src='img/emblem_library.png' style="width: 64px; height: 64px;">&nbsp;E²-LEARN
                             <small>Meu dashboard</small>
                         </h1>
                     </div>
@@ -115,13 +116,13 @@
             </div>
             <br />
             <br/>
-            <div style="width: 85%">
+            <div style="width: 78%">
                 <%if (parametro.equals("alunos")) {%>
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active"><a href="dashboard.jsp?page=alunos">Alunos</a></li>
                     <li><a href="dashboard.jsp?page=conteudos">Conteudos</a></li>
                     <li><a href="dashboard.jsp?page=inicio">Avaliações</a></li>
-                    <div style="float: right; width: 82%;">
+                    <div style="float: right; width: 78%;">
                         <%@include file="_res/lista_alunos.jsp" %>
                     </div>
                 </ul>               
@@ -130,7 +131,7 @@
                     <li class="active"><a href="dashboard.jsp?page=conteudos">Conteúdos</a></li>
                     <li><a href="dashboard.jsp?page=inicio">Avaliaões</a></li>
                     <li><a href="dashboard.jsp?page=alunos">Alunos</a></li>
-                    <div style="float: right; width: 82%;">
+                    <div style="float: right; width: 78%;">
                         <%@include file="_res/lista_conteudo.jsp" %>
                     </div>
                 </ul>
@@ -140,7 +141,7 @@
                     <li><a href="dashboard.jsp?page=alunos">Alunos</a></li>
                     <li><a href="dashboard.jsp?page=conteudos">Conteúdos</a></li>
 
-                    <div style="float: right; width: 82%;">
+                    <div style="float: right; width: 78%;">
                         <%@include file="_res/lista_avaliacoes.jsp" %>
                     </div>
                 </ul>
