@@ -95,7 +95,7 @@ public class AlunoDAO {
                 + "join tb_discip d on (d.CD_DISCIP = cd.TB_DISCIP_CD_DISCIP)"
                 + "join tb_discip_prof dp on (dp.TB_DISCIP_CD_DISCIP=cd.TB_DISCIP_CD_DISCIP)"
                 + "join tb_prof p on (p.CD_PROF=dp.TB_PROF_CD_PROF) WHERE p.cd_prof = "+professor.getCd_professor() 
-                + " AND a.nm_alu LIKE '%"+termo+"%'";
+                + " AND upper(a.nm_alu) LIKE '%"+termo.toUpperCase()+"%'";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);

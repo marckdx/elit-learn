@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>E²-LEARN LOGIN</title>
+        <title>E²-LEARN DASHBOARD</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -53,7 +53,13 @@
                                 <tbody>
                                     <tr>
                                         <td style="width: 78%;">
-                                            <input class="form-control" style="margin-top: auto;" type="search" placeholder="Digite algo">
+                                            <%
+                                            String pesquisar = " inicio ";
+                                            if(request.getParameter("page")!=null){
+                                                pesquisar = request.getParameter("page").toString();
+                                            }
+                                            %>
+                                            <input class="form-control" style="margin-top: auto;" type="search" placeholder="Pesquisar em <%=pesquisar%>">
                                         </td>
                                         <!--<span class="glyphicon glyphicon-search"></span>-->
                                         <td>&nbsp;&nbsp;
@@ -112,23 +118,30 @@
                 <%if (parametro.equals("alunos")) {%>
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active"><a href="dashboard.jsp?page=alunos">Alunos</a></li>
-                    <li><a href="dashboard.jsp?page=tarefasreal">Tarefas realizadas</a></li>
-                    <li><a href="dashboard.jsp?page=inicio">Tarefas</a></li>
+                    <li><a href="dashboard.jsp?page=conteudos">Conteudos</a></li>
+                    <li><a href="dashboard.jsp?page=inicio">Avaliações</a></li>
                     <div style="float: right; width: 82%;">
                         <%@include file="_res/lista_alunos.jsp" %>
                     </div>
                 </ul>               
-                <%} else if (parametro.equals("tarefasreal")) {%>
+                <%} else if (parametro.equals("conteudos")) {%>
                 <ul class="nav nav-tabs nav-justified">
-                    <li class="active"><a href="dashboard.jsp?page=tarefasreal">Tarefas realizadas</a></li>
-                    <li><a href="dashboard.jsp?page=inicio">Tarefas</a></li>
+                    <li class="active"><a href="dashboard.jsp?page=conteudos">Conteúdos</a></li>
+                    <li><a href="dashboard.jsp?page=inicio">Avaliaões</a></li>
                     <li><a href="dashboard.jsp?page=alunos">Alunos</a></li>
+                    <div style="float: right; width: 82%;">
+                        <%@include file="_res/lista_conteudo.jsp" %>
+                    </div>
                 </ul>
                 <%} else {%>
                 <ul class="nav nav-tabs nav-justified">
-                    <li class="active"><a href="dashboard.jsp?page=inicio">Tarefas</a></li>
+                    <li class="active"><a href="dashboard.jsp?page=inicio">Avaliações</a></li>
                     <li><a href="dashboard.jsp?page=alunos">Alunos</a></li>
-                    <li><a href="dashboard.jsp?page=tarefasreal">Tarefas realizadas</a></li>
+                    <li><a href="dashboard.jsp?page=conteudos">Conteúdos</a></li>
+                    
+                    <div style="float: right; width: 82%;">
+                        <%@include file="_res/lista_avaliacoes.jsp" %>
+                    </div>
                 </ul>
                 <%}%>
             </div>
@@ -136,23 +149,7 @@
             <!-- VERIFICAR QUE TELA O PROFESSOR QUER ACESSAR-->
 
             <%}%>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#">Anterior</a>
-                        </li>
-                        <li>
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">2</a>
-                        </li><li>
-                            <a href="#">Próximo</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col-md-12">
                     <hr>

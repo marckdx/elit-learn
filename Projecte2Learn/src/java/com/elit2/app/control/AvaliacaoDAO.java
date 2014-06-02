@@ -53,9 +53,9 @@ public class AvaliacaoDAO {
      */
     public ArrayList<Avaliacao> getAvaliacaoProfessor(Professor prof) throws Exception {
         String sql = "select * from tb_avali a "
-                + "join tb_cont c on(a.tb_cont_cd_cont=c.cd_cont)"
-                + "join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
-                + "where p.cd_prof = " + prof.getCd_professor();
+                + " join tb_cont c on(a.tb_cont_cd_cont=c.cd_cont)"
+                + " join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
+                + " where a.cd_prof = " + prof.getCd_professor();
 
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
@@ -73,6 +73,28 @@ public class AvaliacaoDAO {
         return avaliacoes;
     }
 
+    public ArrayList<Avaliacao> getAvaliacaoProfessor(Professor prof, String termo) throws Exception {
+        String sql = "select * from tb_avali a "
+                + "join tb_cont c on(a.tb_cont_cd_cont=c.cd_cont)"
+                + "join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
+                + "where a.cd_prof = " + prof.getCd_professor()+" and upper(nm_avali) like '%"+termo.toUpperCase()+"%'";
+
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
+
+        while (rs.next()) {
+
+            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"));
+            avaliacoes.add(avaliacao);
+        }
+        con.close();
+        stmt.close();
+        rs.close();
+        return avaliacoes;
+    }
+    
     /**
      * Retorna todas as avaliações de um determinado aluno
      * @param Aluno

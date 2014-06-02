@@ -1,6 +1,7 @@
 package com.elit2.app.control;
 
 import com.elit2.app.model.Conteudo;
+import com.elit2.app.model.Professor;
 import com.elit2.app.model.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -41,5 +42,41 @@ public class ConteudoDAO {
                 + "                      '"+conteudo.getTbProfessor_cd_cpf_professor()+"','"+conteudo.getTbImagem_cd_imagem()+"'"
                 + "'"+conteudo.getNm_conteudo()+"', '"+conteudo.getDs_conteudo()+"', '"+conteudo.getCd_status()+"')");
                                    
+    }
+    
+    
+    public ArrayList<Conteudo> getConteudosProfessor(Professor professor) throws Exception{
+       String sql = "select * from tb_cont c join tb_prof p on (p.cd_prof=c.TB_PROF_CD_PROF) where p.cd_prof="+professor.getCd_professor();
+        
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
+        while (rs.next()) {
+            Conteudo conteudo = new Conteudo(rs.getInt("cd_cont"), rs.getInt("tb_prof_cd_prof"), rs.getInt("tb_prof_cd_cpf"), rs.getInt("tb_imag_cd_imag"), rs.getString("nm_cont"), rs.getString("ds_cont"), rs.getInt("tb_stat_cd_stat"));
+            conteudos.add(conteudo);
+        }
+        con.close();
+        stmt.close();
+        rs.close();
+        return conteudos;
+    }
+    
+     
+    public ArrayList<Conteudo> getConteudosProfessor(Professor professor, String termo) throws Exception{
+       String sql = "select * from tb_cont c join tb_prof p on (p.cd_prof=c.TB_PROF_CD_PROF) where p.cd_prof="+professor.getCd_professor()+" and upper(nm_cont) LIKE '%"+termo.toUpperCase()+"%' or upper(ds_cont) LIKE '%"+termo.toUpperCase()+"%'";
+        
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
+        while (rs.next()) {
+            Conteudo conteudo = new Conteudo(rs.getInt("cd_cont"), rs.getInt("tb_prof_cd_prof"), rs.getInt("tb_prof_cd_cpf"), rs.getInt("tb_imag_cd_imag"), rs.getString("nm_cont"), rs.getString("ds_cont"), rs.getInt("tb_stat_cd_stat"));
+            conteudos.add(conteudo);
+        }
+        con.close();
+        stmt.close();
+        rs.close();
+        return conteudos;
     }
 }

@@ -1,3 +1,5 @@
+<%@page import="com.elit2.app.model.Conteudo"%>
+<%@page import="com.elit2.app.control.ConteudoDAO"%>
 <%@page import="com.elit2.app.model.Aluno"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.ArrayList"%>
@@ -9,19 +11,20 @@
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th colspan="2" style="text-align: center;">Ações</th>
+                <th>Descrição</th>
+                <th colspan="2">Ações</th>
             </tr>
         </thead>
         <tbody>
             <%
                 int pag = 1, max = 30;
-                AlunoDAO alunoDao = new AlunoDAO();
-                ArrayList<Aluno> alunos = null;
+                ConteudoDAO contDao = new ConteudoDAO();
+                ArrayList<Conteudo> conteudos = null;
 
                 if (request.getParameter("search") == null) {
-                    alunos = alunoDao.getAlunosProfessor((Professor) session.getAttribute("professor"));
+                    conteudos = contDao.getConteudosProfessor((Professor)session.getAttribute("professor"));
                 } else {
-                    alunos = alunoDao.getAlunosProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
+                    conteudos = contDao.getConteudosProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
                     out.println("<ol class='breadcrumb'>");
                     out.println("<span class='glyphicon glyphicon-search'></span>");
 
@@ -31,31 +34,31 @@
                         max = mult * 30;
                     }
                         
-                    if (alunos.size() <= 30) {
-                        de = alunos.size();
+                    if (conteudos.size() <= 30) {
+                        de = conteudos.size();
                     } else {
                         de = 30;
-                        pag = (int) alunos.size() / max;
+                        pag = (int) conteudos.size() / max;
                     }
 
-                    out.println("Exibindo <b>" + alunos.size() + "</b> de <b>" + de + "</b> resultados para <i>" + request.getParameter("search") + "</i>");
+                    out.println("Exibindo <b>" + conteudos.size() + "</b> de <b>" + de + "</b> resultados para <i>" + request.getParameter("search") + "</i>");
                     out.println("</ol>");
                 }
 
-                if (alunos != null) {
+                if (conteudos != null) {
                     int cont = 0;
-                    for (Aluno a : alunos) {
+                    for (Conteudo a : conteudos) {
                         out.println("<tr>");
-                        out.println("<td>" + a.getCd_aluno() + "</td>");
-                        out.println("<td>" + a.getNm_aluno() + "</td>");
-                        out.println("<td><a target='_blank' href='avaliacao.jsp?aluno=" + a.getCd_aluno() + " '>Ver avaliações</a></td>");
-                        out.println("<td><a target='_blank' href='conteudo.jsp?aluno=" + a.getCd_aluno() + " '>Ver vizualizações</a></td>");
+                        out.println("<td>"+a.getCd_conteudo()+"</td>");
+                        out.println("<td>" + a.getNm_conteudo()+ "</td>");
+                        out.println("<td>" + a.getDs_conteudo().substring(0, 30)+ "...</td>");
+                        out.println("<td><a target='_blank' href='conteudo.jsp?conteudo=" + a.getCd_conteudo() + " '>Ver conteudo</a></td>");
                         out.println("</tr>");
                         cont++;
                         if(cont == max){ break;}
                     }
                 } else {
-                    out.print("<tr><td colspan='4' style='text-align:center;'>Nenhum aluno encontrado</td></tr>");
+                    out.print("<tr><td colspan='4' style='text-align:center;'>Nenhum conteúdo encontrado</td></tr>");
                 }
 
             %>
