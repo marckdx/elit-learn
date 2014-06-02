@@ -239,6 +239,7 @@
                     <button type="cancel" class="btn btn-default">Cancelar</button>                 
                   </td>
                 <%
+                if(request.getParameter("nome_professor") != null){
                    String nome_professor = request.getParameter("nome_professor"); 
                    String cpf_professor =   request.getParameter("cpf_professor"); 
                    String email_professor = request.getParameter("email_professor");
@@ -246,8 +247,10 @@
                                   
                    ProfessorDAO professordao = new ProfessorDAO();
                    LoginDAO logindao = new LoginDAO();
-                   Login log = new Login(logindao.getLoginCount(),"email_professor", "senha_professor", 1) ;
-                   professordao.setProfessor(nome_professor, cpf_professor,1);                  
+                   Login log = new Login(logindao.getLoginCount(),email_professor, senha_professor, 1) ;
+                   logindao.setLogin(log);
+                   professordao.setProfessor(nome_professor, cpf_professor,1);
+                }
                 %>  
                   
                   

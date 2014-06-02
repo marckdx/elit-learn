@@ -23,7 +23,7 @@ public class LoginDAO {
         rs = stmt.executeQuery(sql);
         ArrayList<Login> logins = new ArrayList<Login>();
         while (rs.next()) {
-           Login login = new Login(rs.getInt("cd_login"), rs.getString("nm_email"), rs.getString("nm_senha"),rs.getString("tp_login"));
+           Login login = new Login(rs.getInt("cd_login"), rs.getString("nm_email"), rs.getString("nm_senha"),rs.getInt("tp_login"));
            logins.add(login);
         }
         con.close();
@@ -32,11 +32,11 @@ public class LoginDAO {
         return logins;
     }
     
-    public int setLogin(Login login) throws Exception{
+    public void setLogin(Login login) throws Exception{
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
-        int result = stmt.executeUpdate("INSERT INTO tb_login VALUES ("+login.getCd_login()+",'"+login.getNm_email()+"','"+login.getNm_senha()+"','"+login.getTp_login()+"')");
-        return result;
+        stmt.executeUpdate("INSERT INTO tb_login VALUES ("+login.getCd_login()+",'"+login.getNm_email()+"','"+login.getNm_senha()+"','"+login.getTp_login()+"')");
+        
     }
     
     public int getLoginCount() throws Exception{
@@ -46,7 +46,7 @@ public class LoginDAO {
         rs = stmt.executeQuery(sql);
         int contador = 0;
         while(rs.next()){
-            contador = Integer.parseInt(rs.getString("1"))+1;
+            contador = Integer.parseInt(rs.getString("COUNT(*)"))+1;
         }
         return contador;
     }

@@ -15,11 +15,11 @@
     Aluno aluno = (Aluno) session.getAttribute("aluno");
     AvaliacaoDAO avaliacaodao = new AvaliacaoDAO();
     //request.getSession().setAttribute("professor", new Professor(1, "marco@live.com", 1, 1));
-    if (session.getAttribute("professor") == null && session.getAttribute("aluno") == null) {
+  /*  if (session.getAttribute("professor") == null && session.getAttribute("aluno") == null) {
         response.sendRedirect("index.jsp");
     } else if (session.getAttribute("professor") != null) {
         response.sendRedirect("index.jsp");
-    }
+    }*/
 %>
 <!DOCTYPE html>
 <!DOCTYPE html>
