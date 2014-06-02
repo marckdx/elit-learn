@@ -24,18 +24,26 @@
                 ArrayList<Avaliacao> avaliacoes = null;
 
                 if (request.getParameter("search") == null) {
-                    avaliacoes = avaliDao.getAvaliacaoProfessor((Professor)session.getAttribute("professor"));
+                    if (session.getAttribute("professor") != null) {
+                        avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"));
+                    } else {
+                        avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("aluno"));
+                    }
                 } else {
-                    avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
+                    if (session.getAttribute("professor") != null) {
+                        avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
+                    } else {
+                        avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("professor"), request.getParameter("search").toString());
+                    }
                     out.println("<ol class='breadcrumb'>");
                     out.println("<span class='glyphicon glyphicon-search'></span>");
 
                     int de = 0;
-                    if(request.getParameter("ver")!=null){
-                        int mult =Integer.parseInt(request.getParameter("ver").toString());
+                    if (request.getParameter("ver") != null) {
+                        int mult = Integer.parseInt(request.getParameter("ver").toString());
                         max = mult * 30;
                     }
-                        
+
                     if (avaliacoes.size() <= 30) {
                         de = avaliacoes.size();
                     } else {
@@ -51,15 +59,17 @@
                     int cont = 0;
                     for (Avaliacao a : avaliacoes) {
                         out.println("<tr>");
-                        out.println("<td>"+a.getCd_avaliacao()+"</td>");
-                        out.println("<td>" + a.getNm_avaliacao()+ "</td>");
+                        out.println("<td>" + a.getCd_avaliacao() + "</td>");
+                        out.println("<td>" + a.getNm_avaliacao() + "</td>");
                         out.println("<td><a target='_blank' href='avaliacao.jsp?avaliacao=" + a.getCd_avaliacao() + " '>Ver avaliação</a></td>");
                         out.println("</tr>");
                         cont++;
-                        if(cont == max){ break;}
+                        if (cont == max) {
+                            break;
+                        }
                     }
                 } else {
-                    out.print("<tr><td colspan='4' style='text-align:center;'>Nenhum conteúdo encontrado</td></tr>");
+                    out.print("<tr><td colspan='4' style='text-align:center;'>Nenhuma avaliação encontrado</td></tr>");
                 }
 
             %>
@@ -74,7 +84,7 @@
             </li>
             <%for (int i = 0; i < pag; i++) {%>
             <li>
-                <a href="dashboard?search=<%=request.getParameter("search")%>&page=alunos&ver=<%=i+1%>"><%=i+1%></a>
+                <a href="dashboard?search=<%=request.getParameter("search")%>&page=alunos&ver=<%=i + 1%>"><%=i + 1%></a>
             </li>
             <%}%>
             <li>

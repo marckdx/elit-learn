@@ -48,7 +48,7 @@
                         ProfessorDAO profDao = new ProfessorDAO();
                         Professor prof = profDao.getProfessorPorLogin(logins.get(0).getCd_login());
                         session.setAttribute("professor", prof);
-                        response.sendRedirect("dashboard.jsp?tp=pes&con=true");
+                        response.sendRedirect("dashboard.jsp?page=conteudos");
                     } else if (logins.get(0).getTp_login().charAt(0) == '0') {
                         AlunoDAO aluDAO = new AlunoDAO();
                         Aluno aluno = aluDAO.getAlunoPorLogin(logins.get(0).getCd_login());
