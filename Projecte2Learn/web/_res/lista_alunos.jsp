@@ -17,6 +17,7 @@
                 int pag = 1, max = 30;
                 AlunoDAO alunoDao = new AlunoDAO();
                 ArrayList<Aluno> alunos = null;
+               
 
                 if (request.getParameter("search") == null) {
                     try {

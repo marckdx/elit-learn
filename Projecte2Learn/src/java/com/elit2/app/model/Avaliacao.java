@@ -29,6 +29,12 @@ public class Avaliacao {
         this.nm_disciplina = nm_disciplina;
         this.ic_status = ic_status;
     }
+     public Avaliacao(int cd_avaliacao, String nm_avaliacao, String nm_professor, String nm_disciplina) {
+        this.cd_avaliacao = cd_avaliacao;
+        this.nm_avaliacao = nm_avaliacao;
+        this.nm_professor = nm_professor;
+        this.nm_disciplina = nm_disciplina;
+    }
 
     public int getCd_avaliacao() {
         return cd_avaliacao;
@@ -58,6 +64,5 @@ public class Avaliacao {
         return ic_status;
     }
 
-    
     
 }

@@ -13,15 +13,25 @@
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th colspan="2">Ações</th>
+                    <%if (session.getAttribute("aluno") != null) {%>
+                <th>Professor</th>
+                    <%}%>
+                <th colspan="1">Disciplina</th>
+                <th colspan="1">Ações</th>
                     <%if (session.getAttribute("aluno") != null) {%>
                 <th>Vi?</th>
                     <%}%>
             </tr>
         </thead>
         <tbody>
-            <%
-                int pag = 1, max = 30;
+
+
+
+
+
+
+
+            <%                int pag = 1, max = 30;
                 AvaliacaoDAO avaliDao = new AvaliacaoDAO();
                 ArrayList<Avaliacao> avaliacoes = null;
 
@@ -70,24 +80,49 @@
                     out.println("</ol>");
                 }
 
-                if (avaliacoes != null) {
-                    int cont = 0;
-                    for (Avaliacao a : avaliacoes) {
-                        out.println("<tr>");
-                        out.println("<td>" + a.getCd_avaliacao() + "</td>");
-                        out.println("<td>" + a.getNm_avaliacao() + "</td>");
-                        out.println("<td><a target='_blank' href='avaliacao.jsp?avaliacao=" + a.getCd_avaliacao() + " '>Ver avaliação</a></td>");
-                        out.println("</tr>");
-                        cont++;
-                        if (cont == max) {
-                            break;
+                if (session.getAttribute("professor") != null) {
+                    if (avaliacoes != null) {
+                        int cont = 0;
+                        for (Avaliacao a : avaliacoes) {
+                            out.println("<tr>");
+                            out.println("<td>" + a.getCd_avaliacao() + "</td>");
+                            out.println("<td>" + a.getNm_avaliacao() + "</td>");
+                            out.println("<td><a target='_blank' href='avaliacao.jsp?avaliacao=" + a.getCd_avaliacao() + " '>Ver avaliação</a></td>");
+                            out.println("</tr>");
+                            cont++;
+                            if (cont == max) {
+                                break;
+                            }
                         }
+                    } else {
+                        out.print("<tr><td colspan='4' style='text-align:center;'>Nenhuma avaliação encontrado</td></tr>");
                     }
                 } else {
-                    out.print("<tr><td colspan='4' style='text-align:center;'>Nenhuma avaliação encontrado</td></tr>");
+                    if (avaliacoes != null) {
+                        int cont = 0;
+
+                        for (Avaliacao a : avaliacoes) {
+                            out.println("<tr>");
+                            out.println("<td>" + a.getCd_avaliacao() + "</td>");
+                            out.println("<td>" + a.getNm_avaliacao() + "</td>");
+                            out.println("<td>" + a.getNm_professor() + "</td>");
+                            out.println("<td>" + a.getNm_disciplina() + "</td>");
+                            out.println("<td><a target='_blank' href='avaliacao.jsp?avaliacao=" + a.getCd_avaliacao() + " '>Ver avaliação</a></td>");
+                            out.println("<td>a</td>");
+
+                            out.println("</tr>");
+                            cont++;
+                            if (cont == max) {
+                                break;
+                            }
+                        }
+                    } else {
+                        out.print("<tr><td colspan='5' style='text-align:center;'>Nenhuma avaliação encontrado</td></tr>");
+                    }
                 }
 
             %>
+
         </tbody>
     </table>
 </div>
