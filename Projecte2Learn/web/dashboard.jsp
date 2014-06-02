@@ -40,37 +40,55 @@
                 <%@include file="_res/menu_lateral.jsp" %>
                 <%if (session.getAttribute("aluno") != null) {%>
                 <div class="col-md-10">
-                    <div class="col-md-6">
-                        <ul class="breadcrumb" style="width: 100%;">
-                            Exibindo
-                            <b>3</b>&nbsp; atividades de
-                            <b>3</b>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <form>
-                            <table style="width: 100%;">
-                                <tbody>
-                                    <tr>
-                                        <td style="width: 78%;">
-                                            <%
-                                                String pesquisar = " inicio ";
-                                                if (request.getParameter("page") != null) {
-                                                    pesquisar = request.getParameter("page").toString();
-                                                }
-                                            %>
-                                            <input class="form-control" style="margin-top: auto;" type="search" placeholder="Pesquisar em <%=pesquisar%>">
-                                        </td>
-                                        <!--<span class="glyphicon glyphicon-search"></span>-->
-                                        <td>&nbsp;&nbsp;
-                                            <input class="active btn btn-primary" style="top: 0px; width: 20%; float: right; position: absolute;" type="submit" value="PESQUISAR">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                
+                    
+                    
+
+                    <%
+                        String parametro;
+                        if (request.getParameter("page") == null) {
+                            parametro = "inicio";
+                        } else {
+                            parametro = request.getParameter("page").toString();
+                        }
+                    %>
+                    <div style="width: 80%; float: right;">
+                        <form style="float: right;" action="dashboard.jsp" method="GET">
+                            <input class="form-control" style="margin-top: auto; width:  150px; float: left;" name="search" type="search" placeholder="Digite algo" />
+                            &nbsp;<button class="btn btn-primary" type="submit">Pesquisar</button>
+                            <input type="hidden" name="page" value="<%=parametro%>"/>
+                            <a class="btn btn-success" href="avaliacao.jsp">Avaliações</a>
+                            <a class="btn btn-warning" href="conteudo.jsp">Conteúdos</a>
                         </form>
                     </div>
-                    <%@include file="_res/lista_avaliacoes.jsp" %>
+
+                    <%if (parametro.equals("alunos")) {%>
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="active"><a href="dashboard.jsp?page=alunos">Alunos</a></li>
+                        <li><a href="dashboard.jsp?page=conteudos">Conteudos</a></li>
+                        <li><a href="dashboard.jsp?page=inicio">Avaliações</a></li>
+                        <div style="float: right; width: 100%;">
+                            <%@include file="_res/lista_alunos.jsp" %>
+                        </div>
+                    </ul>               
+                    <%} else if (parametro.equals("conteudos")) {%>
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="active"><a href="dashboard.jsp?page=conteudos">Conteúdos</a></li>
+                        <li><a href="dashboard.jsp?page=inicio">Avaliaões</a></li>
+                        <div style="float: right; width: 100%;">
+                            <%@include file="_res/lista_conteudo.jsp" %>
+                        </div>
+                    </ul>
+                    <%} else {%>
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="active"><a href="dashboard.jsp?page=inicio">Avaliações</a></li>
+                        <li><a href="dashboard.jsp?page=conteudos">Conteúdos</a></li>
+
+                        <div style="float: right; width: 100%;">
+                            <%@include file="_res/lista_avaliacoes.jsp" %>
+                        </div>
+                    </ul>
+                    <%}%>
                 </div>
             </div>
             <%} else if (session.getAttribute("professor") != null) {%>
@@ -88,12 +106,12 @@
                     &nbsp;<button class="btn btn-primary" type="submit">Pesquisar</button>
                     <input type="hidden" name="page" value="<%=parametro%>"/>
                     <a class="btn btn-success" href="avaliacao.jsp">Nova avaliação</a>
-                    <a class="btn btn-warning" href="conteudo.jsp">Nova tarefa</a>
+                    <a class="btn btn-warning" href="conteudo.jsp">Novo conteúdo</a>
                 </form>
             </div>
             <br />
             <br/>
-            <div>
+            <div style="width: 85%">
                 <%if (parametro.equals("alunos")) {%>
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active"><a href="dashboard.jsp?page=alunos">Alunos</a></li>

@@ -13,7 +13,6 @@
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th>Descrição</th>
                 <th colspan="2">Ações</th>
             </tr>
         </thead>
