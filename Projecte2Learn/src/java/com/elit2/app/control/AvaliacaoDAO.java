@@ -79,7 +79,6 @@ public class AvaliacaoDAO {
                 + "join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
                 + "where a.cd_prof = " + prof.getCd_professor()+" and upper(nm_avali) like '%"+termo.toUpperCase()+"%'";
 
-
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
