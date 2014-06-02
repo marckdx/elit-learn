@@ -245,7 +245,20 @@
                     <button type="reset" class="btn btn-default"> Apagar</button>
                     <button type="cancel" class="btn btn-default">Cancelar</button>                 
                   </td>
-                  
+                <%
+                if(request.getParameter("nome_aluno") != null){
+                   String nome_aluno = request.getParameter("nome_aluno"); 
+                   String email_aluno = request.getParameter("email_aluno");
+                   String senha_aluno = request.getParameter("senha_aluno");
+                   String periodo_aluno = request.getParameter("periodo_aluno");     
+                   String turma_aluno = request.getParameter("turma_aluno");     
+                   AlunoDAO alunodao = new AlunoDAO();
+                   LoginDAO logindao = new LoginDAO();
+                   Login log = new Login(logindao.getLoginSequence(),email_aluno, senha_aluno, 1) ;
+                   logindao.setLogin(log);
+                   alunodao.setAluno(alunodao.getAlunoSequence(),nome_aluno,1);
+                }
+                %>                    
                   <td></td>
                 </tr>
               </tbody>
