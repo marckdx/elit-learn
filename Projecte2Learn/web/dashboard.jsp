@@ -54,10 +54,10 @@
                                     <tr>
                                         <td style="width: 78%;">
                                             <%
-                                            String pesquisar = " inicio ";
-                                            if(request.getParameter("page")!=null){
-                                                pesquisar = request.getParameter("page").toString();
-                                            }
+                                                String pesquisar = " inicio ";
+                                                if (request.getParameter("page") != null) {
+                                                    pesquisar = request.getParameter("page").toString();
+                                                }
                                             %>
                                             <input class="form-control" style="margin-top: auto;" type="search" placeholder="Pesquisar em <%=pesquisar%>">
                                         </td>
@@ -70,28 +70,7 @@
                             </table>
                         </form>
                     </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Atividade</th>
-                                <th>Professor</th>
-                                <th>Disciplina</th>
-                                <th>Terminado</th>
-                                <th>Li?</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Globalização</td>
-                                <td>Gilberto</td>
-                                <td>Geografia</td>
-                                <td>Não</td>
-                                <td>Não</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <%@include file="_res/lista_avaliacoes.jsp" %>
                 </div>
             </div>
             <%} else if (session.getAttribute("professor") != null) {%>
@@ -138,18 +117,15 @@
                     <li class="active"><a href="dashboard.jsp?page=inicio">Avaliações</a></li>
                     <li><a href="dashboard.jsp?page=alunos">Alunos</a></li>
                     <li><a href="dashboard.jsp?page=conteudos">Conteúdos</a></li>
-                    
+
                     <div style="float: right; width: 82%;">
                         <%@include file="_res/lista_avaliacoes.jsp" %>
                     </div>
                 </ul>
                 <%}%>
             </div>
-
-            <!-- VERIFICAR QUE TELA O PROFESSOR QUER ACESSAR-->
-
             <%}%>
-            
+
             <div class="row">
                 <div class="col-md-12">
                     <hr>

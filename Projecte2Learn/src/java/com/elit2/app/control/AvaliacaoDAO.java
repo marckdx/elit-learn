@@ -103,16 +103,16 @@ public class AvaliacaoDAO {
      * @throws Exception
      */
     public ArrayList<Avaliacao> getAvaliacaoAluno(Aluno aluno) throws Exception {
-        String sql = "SELECT * FROM tb_avali a"
-                + "join tb_cont c on(a.tb_cont_cd_cont=c.cd_cont)"
-                + "join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
-                + "join tb_discip_prof dp on(p.cd_prof = dp.tb_prof_cd_prof)"
-                + "join tb_discip d on(dp.tb_discip_cd_discip = d.cd_discip)"
-                + "join tb_cur_discip cd on(d.cd_discp = d.cd_tb_discip_cd_discip)"
-                + "join tb_cur cur on(cur.cd_cur = cd.cd_tb_cur_cd_cur)"
-                + "join tb_tur t on(t.cur_cd_cur = cur.cd_cur)"
-                + "join tb_alu alu on(alu.tb_tur_cd_tur = t.cd_tur)"
-                + "WHERE alu.cd_alu='" + aluno.getCd_aluno() + "'";
+        String sql = " SELECT * FROM tb_avali a"
+                + " join tb_cont c on(a.tb_cont_cd_cont=c.cd_cont)"
+                + " join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
+                + " join tb_discip_prof dp on(p.cd_prof = dp.tb_prof_cd_prof)"
+                + " join tb_discip d on(dp.tb_discip_cd_discip = d.cd_discip)"
+                + " join tb_cur_discip cd on(d.cd_discip = cd.tb_discip_cd_discip)"
+                + " join tb_cur cur on(cur.cd_cur = cd.tb_cur_cd_cur)"
+                + " join tb_tur t on(t.tb_cur_cd_cur = cur.cd_cur)"
+                + " join tb_alu alu on(alu.tb_tur_cd_tur = t.cd_tur)"
+                + " WHERE alu.cd_alu='" + aluno.getCd_aluno() + "'";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
@@ -133,9 +133,9 @@ public class AvaliacaoDAO {
                 + "join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
                 + "join tb_discip_prof dp on(p.cd_prof = dp.tb_prof_cd_prof)"
                 + "join tb_discip d on(dp.tb_discip_cd_discip = d.cd_discip)"
-                + "join tb_cur_discip cd on(d.cd_discp = d.cd_tb_discip_cd_discip)"
-                + "join tb_cur cur on(cur.cd_cur = cd.cd_tb_cur_cd_cur)"
-                + "join tb_tur t on(t.cur_cd_cur = cur.cd_cur)"
+                + "join tb_cur_discip cd on(d.cd_discip = d.cd_tb_discip_cd_discip)"
+                + "join tb_cur cur on(cur.cd_cur = cd.tb_cur_cd_cur)"
+                + "join tb_tur t on(t.tb_cur_cd_cur = cur.cd_cur)"
                 + "join tb_alu alu on(alu.tb_tur_cd_tur = t.cd_tur)"
                 + "WHERE alu.cd_alu='" + aluno.getCd_aluno() + "' and upper(nm_aval) like '%"+termo+"%'";
         con = new OracleConnector().getConnection();
