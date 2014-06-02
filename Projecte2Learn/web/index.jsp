@@ -95,15 +95,14 @@
                         <%}%>
                         <form role="form" action="index.jsp" method="POST">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
+                                <label for="exampleInputEmail1">Endereço de E-mail:</label>
                                 <input class="form-control" name="nm_email" id="exampleInputEmail1" placeholder="Enter email" type="email">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
+                                <label for="exampleInputPassword1">Senha:</label>
                                 <input class="form-control" name="nm_senha" id="exampleInputPassword1" placeholder="Password" type="password">
                             </div>
-
-                            <button type="submit" class="btn btn-primary btn-sm" style="float:right;">ENTRAR</button>
+                            <button type="submit" class="btn btn-primary btn-sm" style="float:right;">ENTRAR</button>                            
                         </form>
                     </div>
 

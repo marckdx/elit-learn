@@ -7,7 +7,7 @@
     } else if (session.getAttribute("aluno") != null) {
         nomeusuario = "Al.: " + ((Aluno) session.getAttribute("aluno")).getNm_aluno();
     } else {
-        nomeusuario = "Olá visitante";
+        nomeusuario = "";
     }
 
 %>
@@ -30,6 +30,8 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <%if (session.getAttribute("professor") != null || session.getAttribute("aluno") != null) {%>
             <a type="button" class="btn btn-danger btn-sm navbar-btn navbar-right" href="./sair.jsp" style="float:right;">Sair</a>&nbsp;&nbsp;&nbsp;
+            <%} else {%>
+            <a type="button" class="btn btn-success btn-sm navbar-btn navbar-right" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right" href="./cadastro_aluno.jsp">Registrar</a>&nbsp;&nbsp;&nbsp;
             <%}%>
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
@@ -42,6 +44,7 @@
             </ul>
 
             <p class="navbar-text navbar-right" style="color:white;"><%out.println(nomeusuario);%></p>
+            
         </div>
     </div>
 </div>

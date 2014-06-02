@@ -55,3 +55,18 @@ select * from tb_imag;
 insert into tb_stat values (1,1,1);
 insert into tb_imag values (1, 'Polinômios','/imdb/01-01-20140601-2311.png')
 insert into tb_cont values (1,1,123456789,1,'Polinômios', 'Em matemática, função polinomial é uma função P que pode ser expressa da forma: em que é um número inteiro não negativo e os números são constantes, chamadas de coeficientes do polinômio.',1);
+
+insert into tb_cont 
+
+select * from tb_cont;
+select * from tb_discip;
+select * from tb_avali
+select * from tb_cont;
+select * from tb_imag;
+select * from tb_stat;
+
+
+insert into tb_imag values(2,'Matriz','/imdb/01-02-20140602.png');
+insert into tb_stat values (2,1);
+insert into tb_cont values(2,1,123456789,2,'Matriz','Em matemática, uma matriz é uma tabela de linhas e colunas de símbolos sobre um conjunto, normalmente um corpo, F, representada sob a forma de um quadro.',1)
+insert into tb_avali values (2,2,3,'P2 Polinomios',1);
