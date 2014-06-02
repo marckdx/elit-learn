@@ -110,10 +110,15 @@ public class AvaliacaoDAO {
      * @return
      * @throws Exception 
      */
-    public int setConteudo(Avaliacao avaliacao) throws Exception {
+    public void setInsereConteudo(Avaliacao avaliacao) throws Exception {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
-        int result = stmt.executeUpdate("INSERT INTO tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
+        stmt.executeUpdate("INSERT INTO tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
+   }
+     public int setDeleteConteudo(Avaliacao avaliacao) throws Exception {
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        int result = stmt.executeUpdate("DELETE ROM tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
         return result;
     }
 

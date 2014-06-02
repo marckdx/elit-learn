@@ -8,6 +8,7 @@ package com.elit2.app.control;
 
 import com.elit2.app.model.Aluno;
 import com.elit2.app.model.Avaliacao;
+import com.elit2.app.model.Curso;
 import com.elit2.app.model.Professor;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -34,7 +35,7 @@ public class CursoDao {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
-        ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
+        ArrayList<Curso> curso = new ArrayList<Curso>();
         while (rs.next()) {
             Avaliacao avali = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"));
             avaliacoes.add(avali);
