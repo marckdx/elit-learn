@@ -31,19 +31,19 @@
         <link href="./css/bootstrap.min.css" rel="stylesheet">
         <script type="text/javascript" src="./js/jquery.min.js"></script>
         <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+        <link rel="shortcut icon" href="img/emblem_library.ico" type="image/x-icon" />
     </head>
     <body>
         <%@include  file="_res/menu.jsp" %>
-        <%
+        <%            
             if (request.getParameter("nm_email") != null && request.getParameter("nm_senha") != null) {
                 LoginDAO logDao = new LoginDAO();
                 ArrayList<Login> logins = null;
                 try {
                     logins = logDao.getLogin(request.getParameter("nm_email"), request.getParameter("nm_senha"));
-                } catch (Exception ex) {
-                    response.sendRedirect("erro.jsp?ex="+ex.getMessage());
-                }
+                
                 if (logins.size() > 0) {
+
                     if (logins.get(0).getTp_login() == 1) {
                         ProfessorDAO profDao = new ProfessorDAO();
                         Professor prof = profDao.getProfessorPorLogin(logins.get(0).getCd_login());
@@ -59,6 +59,10 @@
                     }
                 } else {
                     response.sendRedirect("index.jsp?action=loginerror");
+                }
+                
+                } catch (Exception ex) {
+                    response.sendRedirect("erro.jsp?errorcode=" + ex.getMessage());
                 }
             }
         %>
