@@ -23,15 +23,23 @@
 
                 if (request.getParameter("search") == null) {
                     if (request.getParameter("professor") != null) {
+                        try{
                         conteudos = contDao.getConteudosProfessor((Professor) session.getAttribute("professor"));
+                        }catch(Exception ex){}
                     } else {
+                        try{
                         conteudos = contDao.getConteudoAluno((Aluno) session.getAttribute("aluno"));
+                        }catch(Exception ex){}
                     }
                 } else {
                     if (request.getParameter("professor") != null) {
+                        try{
                         conteudos = contDao.getConteudosProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
+                        }catch(Exception ex){}
                     } else {
+                        try{
                         conteudos = contDao.getConteudoAluno((Aluno) session.getAttribute("aluno"), request.getParameter("search").toString());
+                        }catch(Exception ex){}
                     }
                     out.println("<ol class='breadcrumb'>");
                     out.println("<span class='glyphicon glyphicon-search'></span>");
