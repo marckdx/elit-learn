@@ -1,3 +1,4 @@
+<%@page import="com.elit2.app.model.Curso"%>
 <%@page import="com.elit2.app.model.Turma"%>
 <%@page import="com.elit2.app.control.CursoDao"%>
 <%@page import="com.elit2.app.control.TurmaDAO"%>
@@ -200,9 +201,9 @@
 
                     <select name="select_curso" required>
                       <option ></option>
-                      <option value="ADS">ADS</option>
-                      <option value="quimica">Quimica</option>
-                      <option value="gestao">Gestao</option>
+                      <option value="1">ADS</option>
+                      <option value="2">Quimica</option>
+                      <option value="3">Gestao</option>
                     </select>
                   </td>
 
@@ -254,19 +255,20 @@
                    String email_aluno = request.getParameter("email_aluno");
                    String senha_aluno = request.getParameter("senha_aluno");
                    String periodo_aluno = request.getParameter("periodo_aluno");     
-                   String turma_aluno = request.getParameter("turma_aluno");     
+                   String turma_aluno = request.getParameter("turma_aluno");
+                   int curso = Integer.parseInt(request.getParameter("select_curso"));
                    
                    AlunoDAO alunodao = new AlunoDAO();
                    LoginDAO logindao = new LoginDAO();
                    TurmaDAO turmadao = new TurmaDAO();
-                   CursoDao cursodao = new CursoDao();
+                   CursoDao cursodao = new CursoDao(); 
                    
-                   Login log = new Login(logindao.getLoginSequence(),email_aluno, senha_aluno, 0) ;
-                   Turma turm = new Turma(turmadao.getTurmaSequence(), turma_aluno, cursodao.getCursoSequence());
+                   Login log = new Login(logindao.getLoginSequence(),email_aluno, senha_aluno, 1) ;
+                   Turma turm = new Turma(turmadao.getTurmaSequence(), turma_aluno, curso);
                    logindao.setLogin(log);
                    turmadao.setTurma(turm);
-                   alunodao.setAluno(nome_aluno, turm.getCd_tur(), log.getTp_login());
-     
+                   alunodao.setAluno(nome_aluno, turm.getCd_tur(), log.getCd_login(), 1, 1);
+                   
                 }
                 %>                    
                   <td></td>
