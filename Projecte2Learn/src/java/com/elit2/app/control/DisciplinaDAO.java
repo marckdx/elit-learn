@@ -35,7 +35,7 @@ public class DisciplinaDAO {
     }
 
     /**
-     * Busca a disciplina.
+     * Método para buscar a disciplina.
      */
     public ArrayList<Disciplina> getDisciplinas(String nome) throws Exception {
         String sql = "SELECT * FROM tb_discip WHERE nm_discip LIKE '%" + nome + "%'";
@@ -54,7 +54,7 @@ public class DisciplinaDAO {
     }
 
     /**
-     * Adiciona uma disciplina no banco.
+     * Método que adiciona uma disciplina no banco.
      */
     public int setDisciplina(Disciplina discip) throws Exception {
         String sql = "INSERT INTO tb_discip VALUES (" + discip.getCd_Disciplina() + ",'" + discip.getNm_Disciplina() + "')";
@@ -65,7 +65,9 @@ public class DisciplinaDAO {
         stmt.close();
         return result;
     }
-
+    /**
+     * Método contador de disciplinas para o cd_discip.
+     */
     public int getDisciplinaSequence() throws Exception {
         String sql = "SELECT COUNT(*) FROM tb_discip";
         con = new OracleConnector().getConnection();
