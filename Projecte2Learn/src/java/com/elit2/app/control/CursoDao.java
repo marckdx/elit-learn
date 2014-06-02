@@ -3,34 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.elit2.app.control;
 
-/**
- *
- * @author Valmir Desktop
- */
 import com.elit2.app.model.Aluno;
-import com.elit2.app.model.Professor;
 import com.elit2.app.model.Avaliacao;
+import com.elit2.app.model.Professor;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class AvaliacaoDAO {
-
+/**
+ *
+ * @author Valmir Desktop
+ */
+public class CursoDao {
     Connection con;
     Statement stmt;
     ResultSet rs;
 
     /**
-     * Retorna todas as Avaliações
+     * Retorna todos os Cursos
      *
      * @return
      * @throws Exception
      */
-    public ArrayList<Avaliacao> getAvaliacao() throws Exception {
-        String sql = "SELECT * FROM tb_Avali";
+    public ArrayList<Curso> getCurso() throws Exception {
+        String sql = "SELECT * FROM tb_cur";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
@@ -116,6 +116,4 @@ public class AvaliacaoDAO {
         int result = stmt.executeUpdate("INSERT INTO tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
         return result;
     }
-
-
 }
