@@ -5,10 +5,21 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.elit2.app.control.AvaliacaoDAO" %>
+<%@page import="com.elit2.app.model.Avaliacao" %>
+<%@page import="com.elit2.app.model.Professor" %>
+<%@page import="com.elit2.app.model.Aluno" %>
+
 <%
     //request.getSession().setAttribute("professor", new Professor(1, "marco@live.com", 1, 1));
     if (session.getAttribute("professor") == null && session.getAttribute("aluno") == null) {
-         response.sendRedirect("index.jsp");
+        response.sendRedirect("index.jsp");
+    } else if (session.getAttribute("professor") != null) {
+        Professor professor = (Professor) session.getAttribute("professor");
+        AvaliacaoDAO avaliacaodao = new AvaliacaoDAO();
+    } else {
+        Aluno aluno = (Aluno) session.getAttribute("aluno");
+        AvaliacaoDAO avaliacaodao = new AvaliacaoDAO();
     }
 %>
 <!DOCTYPE html>
