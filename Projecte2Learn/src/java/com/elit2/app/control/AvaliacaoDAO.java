@@ -115,11 +115,13 @@ public class AvaliacaoDAO {
         stmt = con.createStatement();
         stmt.executeUpdate("INSERT INTO tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
    }
-     public int setDeleteConteudo(Avaliacao avaliacao) throws Exception {
+    
+     public void setDeleteConteudo(Avaliacao avaliacao) throws Exception {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
-        int result = stmt.executeUpdate("DELETE ROM tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
-        return result;
+        stmt.executeUpdate("DELETE ROM tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')"
+                + "WHERE cd_avali='"+avaliacao.getCd_avaliacao()
+                + "");
     }
 
 
