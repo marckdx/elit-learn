@@ -1,10 +1,11 @@
 package com.elit2.app.control;
 
+import com.elit2.app.model.Aluno;
 import com.elit2.app.model.Conteudo;
 import com.elit2.app.model.Professor;
-import com.elit2.app.model.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -88,6 +89,53 @@ public class ConteudoDAO {
             contador = Integer.parseInt(rs.getString("COUNT(*)")) + 1;
         }
         return contador;
+    }
+
+    public ArrayList<Conteudo> getConteudoAluno(Aluno aluno) throws Exception {
+        String sql = " select * from tb_cont c join tb_prof p on (c.tb_prof_cd_prof=p.cd_prof)"
+                + " join tb_discip_prof dp on (p.cd_prof=dp.tb_prof_cd_prof) "
+                + " join tb_discip d on (d.cd_discip=dp.TB_DISCIP_CD_DISCIP)"
+                + " join tb_cur_discip cd on (d.CD_DISCIP=cd.tb_discip_cd_discip)"
+                + " join tb_cur cu on (cd.TB_CUR_CD_CUR=cu.CD_CUR)"
+                + " join tb_tur t on (t.TB_CUR_CD_CUR=cu.CD_CUR)"
+                + " join tb_alu al on (al.TB_TUR_TB_CUR_CD_CUR=t.CD_TUR) where cd_alu = "+aluno.getCd_aluno();
+
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
+        while (rs.next()) {
+            Conteudo conteudo = new Conteudo(rs.getInt("cd_cont"), rs.getInt("tb_prof_cd_prof"), rs.getInt("tb_prof_cd_cpf"), rs.getInt("tb_imag_cd_imag"), rs.getString("nm_cont"), rs.getString("ds_cont"), rs.getInt("tb_stat_cd_stat"));
+            conteudos.add(conteudo);
+        }
+        con.close();
+        stmt.close();
+        rs.close();
+        return conteudos;
+    }
+
+    public ArrayList<Conteudo> getConteudoAluno(Aluno aluno, String termo) throws Exception {
+           String sql = " select * from tb_cont c join tb_prof p on (c.tb_prof_cd_prof=p.cd_prof)"
+                + " join tb_discip_prof dp on (p.cd_prof=dp.tb_prof_cd_prof) "
+                + " join tb_discip d on (d.cd_discip=dp.TB_DISCIP_CD_DISCIP)"
+                + " join tb_cur_discip cd on (d.CD_DISCIP=cd.tb_discip_cd_discip)"
+                + " join tb_cur cu on (cd.TB_CUR_CD_CUR=cu.CD_CUR)"
+                + " join tb_tur t on (t.TB_CUR_CD_CUR=cu.CD_CUR)"
+                + " join tb_alu al on (al.TB_TUR_TB_CUR_CD_CUR=t.CD_TUR) where cd_alu = "+aluno.getCd_aluno()
+                + " and upper(c.nm_cont) like '%"+termo.toUpperCase()+"%'";
+
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
+        while (rs.next()) {
+            Conteudo conteudo = new Conteudo(rs.getInt("cd_cont"), rs.getInt("tb_prof_cd_prof"), rs.getInt("tb_prof_cd_cpf"), rs.getInt("tb_imag_cd_imag"), rs.getString("nm_cont"), rs.getString("ds_cont"), rs.getInt("tb_stat_cd_stat"));
+            conteudos.add(conteudo);
+        }
+        con.close();
+        stmt.close();
+        rs.close();
+        return conteudos;
     }
 
 }

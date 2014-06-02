@@ -6,15 +6,15 @@
         <div class="panel-body" style="width:100%;">
             <ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
                 <li class="active">
-                    <a href="dashboard.jsp?opt=dashboard">
-                        <span class="badge pull-right">42</span>
+                    <a href="dashboard.jsp">
+                        <span class="badge pull-right"></span>
                         Dashboard
                     </a>
                 </li>
-                <li><a href="dashboard.jsp?opt=progressao">Progressão</a></li>
+                <li><a href="">Acompanhamento</a></li>
                 <li>
                     <a href="help.jsp">
-                        <span class="badge pull-right">3</span>
+                        <span class="badge pull-right"></span>
                         Ajuda
                     </a>
                 </li>

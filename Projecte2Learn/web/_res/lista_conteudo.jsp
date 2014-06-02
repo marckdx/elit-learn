@@ -25,13 +25,13 @@
                     if (request.getParameter("professor") != null) {
                         conteudos = contDao.getConteudosProfessor((Professor) session.getAttribute("professor"));
                     } else {
-                       // conteudos = contDao.getConteudosAluno((Aluno) session.getAttribute("aluno"));
+                        conteudos = contDao.getConteudoAluno((Aluno) session.getAttribute("aluno"));
                     }
                 } else {
-                    if(request.getParameter("professor") != null) {
-                    conteudos = contDao.getConteudosProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
-                    }else{
-                      // conteudos = contDao.getConteudosAluno((Aluno) session.getAttribute("aluno"), request.getParameter("search").toString());
+                    if (request.getParameter("professor") != null) {
+                        conteudos = contDao.getConteudosProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
+                    } else {
+                        conteudos = contDao.getConteudoAluno((Aluno) session.getAttribute("aluno"), request.getParameter("search").toString());
                     }
                     out.println("<ol class='breadcrumb'>");
                     out.println("<span class='glyphicon glyphicon-search'></span>");
