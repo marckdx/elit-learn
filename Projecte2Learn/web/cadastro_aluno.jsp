@@ -1,3 +1,6 @@
+<%@page import="com.elit2.app.model.Login"%>
+<%@page import="com.elit2.app.control.LoginDAO"%>
+<%@page import="com.elit2.app.control.AlunoDAO"%>
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +31,7 @@
         </button>
 
         <a class="navbar-brand" href="#" style="color:white;">
-          <span class="glyphicon glyphicon-list"></span>&nbsp;ELITÂ²</a>
+          <span class="glyphicon glyphicon-list"></span>&nbsp;ELIT²</a>
       </div>
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -39,10 +42,8 @@
             <a href="#" style="color:white;">Contatos</a>
           </li>
         </ul>
-
-
-
-        <p class="navbar-text navbar-right" style="color:white;">Bem-vindo, SÃ©rgio Fortuna</p>
+         <%@include file="_res/menu.jsp" %>
+         
       </div>
     </div>
   </div>
@@ -53,8 +54,8 @@
     <div class="row">
       <div class="col-md-12">
         <div class="page-header">
-          <h1 class="text-center text-primary">EÂ²-LEARN
-            <small>Cadastro de Aluno</small>
+          <h1 class="text-center text-primary">E²-LEARN
+            <small>Cadastro do Aluno</small>
           </h1>
         </div>
       </div>
@@ -70,8 +71,8 @@
             <a class="btn btn-primary" style="width: 100%;">Dashboard</a>
             <a class="btn btn-primary" style="width:100%">Escola</a>
             <a class="btn btn-primary" style="width:100%">Disciplinas</a>
-            <a class="btn btn-primary" style="width:100%">ConteÃºdos</a>
-            <a class="active btn btn-lg btn-success" style="width:100%">AvaliaÃ§Ãµes</a>
+            <a class="btn btn-primary" style="width:100%">Conteúdos</a>
+            <a class="active btn btn-lg btn-success" style="width:100%">Avaliações</a>
           </div>
         </div>
       </div>
@@ -80,33 +81,6 @@
         <form name="cadastro_aluno" method="post" role="form">
           <div class="col-md-10">
             <br>
-            <!--
-           
-           <label>Nome:</label>
-           <input id="nome_aluno" placeholder="Digite seu nome" type="text" size="60" ><br/><br/>
-           <label>Sobrenome</label>
-           <input id="sobrenome_aluno" placeholder="Digite seu sobrenome" type="text" size="60">
-           <br/>
-           <br/>
-           
-           <label>Data de Nascimento</label>
-           <input id="sobrenome_aluno" placeholder="__/__/____" type="text" size="10"><br/><br/>
-           <label>InstituiÃ§Ã£o</label>
-           <select name="select_instituicoes">
-             <option value="Fatec - PG">Fatec - P.G.</option>
-             <option value="Fatec - PG">Fatec - S.V.</option>
-             <option value="Fatec - PG">Fatec - S.P.</option>
-           </select>
-                   
-<!--BOTÃ•ES DO FORMULÃRIO<br/><br/><br/><br/><br/><br/><br/><br/>
-           <button type="submit" class="btn btn-default">Enviar</button>
-           <button type="reset" class="btn btn-default">Apagar</button>
-           <button type="cancel" class="btn btn-default">Cancelar</button>
-</div>
-         
-       </form> 
-   -->
-
 
             <table>
               <tbody>
@@ -117,29 +91,31 @@
                     </label>
                   </td>
                   <td>
-                    <input id="nome_aluno" placeholder="Digite seu nome completo" type="text" size="50">
+                    <input id="nome_professor" name ="nome_aluno" placeholder="Digite seu nome completo" type="text" size="50" required>
                   </td>
                   <td></td>
                   <td></td>
                 </tr>
+
                 <tr>
-                  <td style="color:white" ;="">.</td>
+                  <td style="color:white">.</td>
                   <td></td>
                   <td></td>
                   <td></td>
                 </tr>
+
                 <tr>
                   <td>
-                    <label>e-mail</label>
+                    <label>E-mail</label>
                   </td>
                   <td>
-                    <input id="email_aluno" placeholder="Digite seu e-mail" type="text" size="50">
+                    <input id="email_professor" name="email_aluno" placeholder="Digite seu e-mail" type="text" size="50" required>
                   </td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td style="color:white" ;="">.</td>
+                  <td style="color:white">.</td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -150,13 +126,13 @@
                     <label>Senha:</label>
                   </td>
                   <td>
-                    <input id="senha_aluno" placeholder="Digite uma senha" type="password" size="14">
+                    <input id="senha_professor" name="senha_aluno" placeholder="Digite uma senha" type="password" size="14" required>
                   </td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td style="color:white" ;="">.</td>
+                  <td style="color:white">.</td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -164,14 +140,15 @@
 
                 <tr>
                   <td>
-                    <label>InstituiÃ§Ã£o:</label>
+                    <label>Instituição:</label>
                   </td>
                   <td>
 
-                    <select name="select_instituicao">
-                      <option value="Fatec - PG">Fatec - P.G.</option>
-                      <option value="Fatec - PG">Fatec - S.V.</option>
-                      <option value="Fatec - PG">Fatec - S.P.</option>
+                    <select name="select_instituicao_aluno" required>
+                      <option required></option>
+                      <option value="Fatec - PG" required>Fatec - P.G.</option>
+                      <option value="Fatec - PG" required>Fatec - S.V.</option>
+                      <option value="Fatec - PG" required>Fatec - S.P.</option>
                     </select>
                   </td>
 
@@ -181,20 +158,19 @@
                 </tr>
 
                 <tr>
-                  <td style="color:white" ;="">.</td>
+                  <td style="color:white">.</td>
                   <td></td>
                   <td></td>
                   <td></td>
                 </tr>
-
-                <tr>
+               <tr>
                   <td>
-                    <label>PerÃ­odo:</label>
+                    <label>Período:</label>
                   </td>
                   <td>
 
                     <select name="select_periodo">
-                      <option value="manha">ManhÃ£</option>
+                      <option value="manha">Manhã</option>
                       <option value="tarde">Tarde</option>
                       <option value="noite">Noite</option>
                     </select>
@@ -212,16 +188,18 @@
                   <td></td>
                 </tr>
 
+                
                 <tr>
                   <td>
                     <label>Curso:</label>
                   </td>
                   <td>
 
-                    <select name="select_curso">
+                    <select name="select_curso" required>
+                      <option ></option>
                       <option value="ADS">ADS</option>
-                      <option value="quimica">QuÃ­mica</option>
-                      <option value="gestao">GestÃ£o</option>
+                      <option value="quimica">Quimica</option>
+                      <option value="gestao">Gestao</option>
                     </select>
                   </td>
 
@@ -231,7 +209,7 @@
                 </tr>
 
                 <tr>
-                  <td style="color:white" ;="">.</td>
+                  <td style="color:white">.</td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -244,9 +222,9 @@
                   <td>
 
                     <select name="select_turma">
-                      <option value="1ano">1Âº Ano</option>
-                      <option value="2ano">2Âº Ano</option>
-                      <option value="3ano">3Âº Ano</option>
+                      <option value="1ano">1º Ano</option>
+                      <option value="2ano">2º Ano</option>
+                      <option value="3ano">3º Ano</option>
                     </select>
                   </td>
 
@@ -264,9 +242,10 @@
                 <tr>
                   <td colspan="4">
                     <button type="submit" class="btn btn-default">Enviar</button>
-                    <button type="reset" class="btn btn-default">Apagar</button>
-                    <button type="cancel" class="btn btn-default">Cancelar</button>
+                    <button type="reset" class="btn btn-default"> Apagar</button>
+                    <button type="cancel" class="btn btn-default">Cancelar</button>                 
                   </td>
+                  
                   <td></td>
                 </tr>
               </tbody>
@@ -288,7 +267,7 @@
               <a href="#">2</a>
             </li>
             <li>
-              <a href="#">PrÃ³ximo</a>
+              <a href="#">Proximo</a>
             </li>
           </ul>
         </div>
@@ -306,11 +285,6 @@
 
 
   </div>
-
-
-
-
-
 
 
 
