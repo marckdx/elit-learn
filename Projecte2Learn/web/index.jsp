@@ -37,7 +37,12 @@
         <%
             if (request.getParameter("nm_email") != null && request.getParameter("nm_senha") != null) {
                 LoginDAO logDao = new LoginDAO();
-                ArrayList<Login> logins = logDao.getLogin(request.getParameter("nm_email"), request.getParameter("nm_senha"));
+                ArrayList<Login> logins = null;
+                try {
+                    logins = logDao.getLogin(request.getParameter("nm_email"), request.getParameter("nm_senha"));
+                } catch (Exception ex) {
+                    response.sendRedirect("erro.jsp?ex="+ex.getMessage());
+                }
                 if (logins.size() > 0) {
                     if (logins.get(0).getTp_login().charAt(0) == '1') {
                         ProfessorDAO profDao = new ProfessorDAO();
@@ -50,10 +55,10 @@
                         session.setAttribute("aluno", aluno);
                         response.sendRedirect("dashboard.jsp?tp=pes&con=true");
                     } else {
-                         response.sendRedirect("index.jsp?action=idusernotfound");
+                        response.sendRedirect("index.jsp?action=idusernotfound");
                     }
                 } else {
-                     response.sendRedirect("index.jsp?action=loginerror");
+                    response.sendRedirect("index.jsp?action=loginerror");
                 }
             }
         %>
