@@ -55,7 +55,7 @@ public class AvaliacaoDAO {
         String sql = "select * from tb_avali a "
                 + "join tb_cont c on(a.tb_cont_cd_cont=c.cd_cont)"
                 + "join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
-                + "where a.cd_aluno = " + prof.getCd_professor();
+                + "where p.cd_prof = " + prof.getCd_professor();
 
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();

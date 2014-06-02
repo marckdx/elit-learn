@@ -16,7 +16,7 @@ INSERT INTO tb_prof VALUES(3,'Jhonatan Rodrigues',123456789,3);
 
 SELECT * FROM tb_prof
 
-insert into tb_login values (4,'btunno@elit2.com','123','0');
+insert into tb_login values (4,'brunno@elit2.com','123','0');
 insert into tb_login values (5,'gilberto@elit2.com','123','0');
 insert into tb_login values (6,'sergio@elit2.com','123','0');
 

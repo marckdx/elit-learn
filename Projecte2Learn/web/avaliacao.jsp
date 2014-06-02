@@ -5,6 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    //request.getSession().setAttribute("professor", new Professor(1, "marco@live.com", 1, 1));
+    if (session.getAttribute("professor") == null && session.getAttribute("aluno") == null) {
+         response.sendRedirect("index.jsp");
+    }
+%>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html>
@@ -15,41 +21,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
-        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        <link href="./css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="./js/jquery.min.js"></script>
+        <script type="text/javascript" src="./js/bootstrap.min.js"></script>
     </head>
 
     <body>
-        <div class="navbar navbar-default navbar-fixed-top" style="background-color: #0E47B2;">
-            <style>
-                .body{padding-top:70px}
-            </style>
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <a class="navbar-brand" href="#" style="color:white;">
-                        <span class="glyphicon glyphicon-list"></span>&nbsp;ELIT²</a>
-                </div>
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="">
-                            <a href="#" style="color:white;">Home</a>
-                        </li>
-                        <li>
-                            <a href="#" style="color:white;">Contatos</a>
-                        </li>
-                    </ul>
-                    <p class="navbar-text navbar-right" style="color:white;">Bem-vindo, Sérgio Fortuna</p>
-                </div>
-            </div>
-        </div>
+        <%@include file="./_res/menu.jsp" %>
         <br>
         <br>
         <br>
@@ -64,16 +42,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title text-center">MENU</h3>
-                        </div>
-                        <div class="panel-body" style="">
-                            <%@include  file="_res/menu_lateral.jsp"%>
-                        </div>
-                    </div>
-                </div>
+                <%@include file="./_res/menu_lateral.jsp" %>
                 <div class="col-md-10">
 
                     <div class="col-md-6">
