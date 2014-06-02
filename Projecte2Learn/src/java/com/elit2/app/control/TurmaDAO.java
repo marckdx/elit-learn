@@ -46,5 +46,11 @@ public class TurmaDAO {
         }
         return contador;
     }
+    
+    public void setTurma(Turma turma) throws Exception{
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        stmt.executeUpdate("INSERT INTO tb_login VALUES ('"+turma.getCd_tur()+"' '"+turma.getCd_tur()+"''"+turma.getTb_curso_cd_curso()+"')");
+    }
 
 }

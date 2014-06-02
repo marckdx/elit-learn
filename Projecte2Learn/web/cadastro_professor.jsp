@@ -165,10 +165,10 @@
                   <td>
 
                     <select name="select_instituicao_professor" required>
-                      <option required></option>
-                      <option value="Fatec - PG" required>Fatec - P.G.</option>
-                      <option value="Fatec - PG" required>Fatec - S.V.</option>
-                      <option value="Fatec - PG" required>Fatec - S.P.</option>
+                      <option></option>
+                      <option value="Fatec - PG" >Fatec - P.G.</option>
+                      <option value="Fatec - PG" >Fatec - S.V.</option>
+                      <option value="Fatec - PG" >Fatec - S.P.</option>
                     </select>
                   </td>
 

@@ -1,3 +1,6 @@
+<%@page import="com.elit2.app.model.Turma"%>
+<%@page import="com.elit2.app.control.CursoDao"%>
+<%@page import="com.elit2.app.control.TurmaDAO"%>
 <%@page import="com.elit2.app.model.Login"%>
 <%@page import="com.elit2.app.control.LoginDAO"%>
 <%@page import="com.elit2.app.control.AlunoDAO"%>
@@ -145,10 +148,10 @@
                   <td>
 
                     <select name="select_instituicao_aluno" required>
-                      <option required></option>
-                      <option value="Fatec - PG" required>Fatec - P.G.</option>
-                      <option value="Fatec - PG" required>Fatec - S.V.</option>
-                      <option value="Fatec - PG" required>Fatec - S.P.</option>
+                      <option></option>
+                      <option value="Fatec - PG" >Fatec - P.G.</option>
+                      <option value="Fatec - PG" >Fatec - S.V.</option>
+                      <option value="Fatec - PG" >Fatec - S.P.</option>
                     </select>
                   </td>
 
@@ -182,7 +185,7 @@
                 </tr>
 
                 <tr>
-                  <td style="color:white" ;="">.</td>
+                  <td style="color:white;">.</td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -233,7 +236,7 @@
                   <td></td>
                 </tr>
                 <tr>
-                  <td style="color:white" ;="">.</td>
+                  <td style="color:white;">.</td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -252,11 +255,18 @@
                    String senha_aluno = request.getParameter("senha_aluno");
                    String periodo_aluno = request.getParameter("periodo_aluno");     
                    String turma_aluno = request.getParameter("turma_aluno");     
+                   
                    AlunoDAO alunodao = new AlunoDAO();
                    LoginDAO logindao = new LoginDAO();
-                   Login log = new Login(logindao.getLoginSequence(),email_aluno, senha_aluno, 1) ;
+                   TurmaDAO turmadao = new TurmaDAO();
+                   CursoDao cursodao = new CursoDao();
+                   
+                   Login log = new Login(logindao.getLoginSequence(),email_aluno, senha_aluno, 0) ;
+                   Turma turm = new Turma(turmadao.getTurmaSequence(), turma_aluno, cursodao.getCursoSequence());
                    logindao.setLogin(log);
-                   alunodao.setAluno(alunodao.getAlunoSequence(),nome_aluno,1);
+                   turmadao.setTurma(turm);
+                   alunodao.setAluno(nome_aluno, turm.getCd_tur(), log.getTp_login());
+     
                 }
                 %>                    
                   <td></td>

@@ -125,5 +125,16 @@ public class AlunoDAO {
         }
         return contador;
     }
-
+   
+    
+    public void setAluno(String nome_aluno, int cd_turma, int tp_login) throws Exception {
+        Professor profe = null;
+        String sql = "INSERT INTO tb_prof VALUES('" + profe.getNm_professor() + "''" + profe.getCd_cpf() + "''" + profe.getCd_login() + "';)";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        stmt.executeUpdate(sql);
+        con.close();
+        stmt.close();
+        rs.close();
+    }
 }
