@@ -35,32 +35,32 @@
     </head>
     <body>
         <%@include  file="_res/menu.jsp" %>
-        <%            
+        <%
             if (request.getParameter("nm_email") != null && request.getParameter("nm_senha") != null) {
                 LoginDAO logDao = new LoginDAO();
                 ArrayList<Login> logins = null;
                 try {
                     logins = logDao.getLogin(request.getParameter("nm_email"), request.getParameter("nm_senha"));
-                
-                if (logins.size() > 0) {
 
-                    if (logins.get(0).getTp_login() == 1) {
-                        ProfessorDAO profDao = new ProfessorDAO();
-                        Professor prof = profDao.getProfessorPorLogin(logins.get(0).getCd_login());
-                        session.setAttribute("professor", prof);
-                        response.sendRedirect("dashboard.jsp?page=conteudos");
-                    } else if (logins.get(0).getTp_login() == 0) {
-                        AlunoDAO aluDAO = new AlunoDAO();
-                        Aluno aluno = aluDAO.getAlunoPorLogin(logins.get(0).getCd_login());
-                        session.setAttribute("aluno", aluno);
-                        response.sendRedirect("dashboard.jsp?tp=pes&con=true");
+                    if (logins.size() > 0) {
+
+                        if (logins.get(0).getTp_login() == 1) {
+                            ProfessorDAO profDao = new ProfessorDAO();
+                            Professor prof = profDao.getProfessorPorLogin(logins.get(0).getCd_login());
+                            session.setAttribute("professor", prof);
+                            response.sendRedirect("dashboard.jsp?page=conteudos");
+                        } else if (logins.get(0).getTp_login() == 0) {
+                            AlunoDAO aluDAO = new AlunoDAO();
+                            Aluno aluno = aluDAO.getAlunoPorLogin(logins.get(0).getCd_login());
+                            session.setAttribute("aluno", aluno);
+                            response.sendRedirect("dashboard.jsp?tp=pes&con=true");
+                        } else {
+                            response.sendRedirect("index.jsp?action=idusernotfound");
+                        }
                     } else {
-                        response.sendRedirect("index.jsp?action=idusernotfound");
+                        response.sendRedirect("index.jsp?action=loginerror");
                     }
-                } else {
-                    response.sendRedirect("index.jsp?action=loginerror");
-                }
-                
+
                 } catch (Exception ex) {
                     response.sendRedirect("erro.jsp?errorcode=" + ex.getMessage());
                 }
@@ -130,12 +130,7 @@
 
             </div>
             <br>
-            <div class="row">
-                <div class="col-md-12">
-
-                    <hr>
-                </div>
-            </div>
+            <%@include  file="_res/rodape.jsp"%>
         </div>
 
     </body>

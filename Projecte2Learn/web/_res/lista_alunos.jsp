@@ -19,18 +19,24 @@
                 ArrayList<Aluno> alunos = null;
 
                 if (request.getParameter("search") == null) {
-                    alunos = alunoDao.getAlunosProfessor((Professor) session.getAttribute("professor"));
+                    try {
+                        alunos = alunoDao.getAlunosProfessor((Professor) session.getAttribute("professor"));
+                    } catch (Exception ex) {
+                    }
                 } else {
-                    alunos = alunoDao.getAlunosProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
+                    try {
+                        alunos = alunoDao.getAlunosProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
+                    } catch (Exception ex) {
+                    }
                     out.println("<ol class='breadcrumb'>");
                     out.println("<span class='glyphicon glyphicon-search'></span>");
 
                     int de = 0;
-                    if(request.getParameter("ver")!=null){
-                        int mult =Integer.parseInt(request.getParameter("ver").toString());
+                    if (request.getParameter("ver") != null) {
+                        int mult = Integer.parseInt(request.getParameter("ver").toString());
                         max = mult * 30;
                     }
-                        
+
                     if (alunos.size() <= 30) {
                         de = alunos.size();
                     } else {
@@ -52,7 +58,9 @@
                         out.println("<td><a target='_blank' href='conteudo.jsp?aluno=" + a.getCd_aluno() + " '>Ver vizualizações</a></td>");
                         out.println("</tr>");
                         cont++;
-                        if(cont == max){ break;}
+                        if (cont == max) {
+                            break;
+                        }
                     }
                 } else {
                     out.print("<tr><td colspan='4' style='text-align:center;'>Nenhum aluno encontrado</td></tr>");
@@ -70,7 +78,7 @@
             </li>
             <%for (int i = 0; i < pag; i++) {%>
             <li>
-                <a href="dashboard?search=<%=request.getParameter("search")%>&page=alunos&ver=<%=i+1%>"><%=i+1%></a>
+                <a href="dashboard?search=<%=request.getParameter("search")%>&page=alunos&ver=<%=i + 1%>"><%=i + 1%></a>
             </li>
             <%}%>
             <li>

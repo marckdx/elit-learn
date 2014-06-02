@@ -14,6 +14,9 @@
                 <th>#</th>
                 <th>Nome</th>
                 <th colspan="2">Ações</th>
+                    <%if (session.getAttribute("aluno") != null) {%>
+                <th>Vi?</th>
+                    <%}%>
             </tr>
         </thead>
         <tbody>
@@ -24,15 +27,28 @@
 
                 if (request.getParameter("search") == null) {
                     if (session.getAttribute("professor") != null) {
-                        avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"));
+                        try {
+                            avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"));
+                        } catch (Exception ex) {
+                        }
                     } else {
-                        avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("aluno"));
+                        try {
+                            avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("aluno"));
+                        } catch (Exception ex) {
+                        }
                     }
                 } else {
                     if (session.getAttribute("professor") != null) {
-                        avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
+                        try {
+                            avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
+                        } catch (Exception ex) {
+                        }
                     } else {
-                        avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("professor"), request.getParameter("search").toString());
+                        try {
+                            avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("professor"), request.getParameter("search").toString());
+                        } catch (Exception ex) {
+                        }
+
                     }
                     out.println("<ol class='breadcrumb'>");
                     out.println("<span class='glyphicon glyphicon-search'></span>");

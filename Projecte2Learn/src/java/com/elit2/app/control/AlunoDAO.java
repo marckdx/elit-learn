@@ -72,6 +72,7 @@ public class AlunoDAO {
         return aluno;
     }
 
+    //Método que retorna os alunos de um professor
     public ArrayList<Aluno> getAlunosProfessor(Professor professor) throws Exception {
         String sql = "select * from tb_alu a join tb_tur t on(t.cd_tur=a.tb_tur_cd_tur) "
                 + "join tb_cur c on (c.cd_cur=t.tb_cur_cd_cur)"
@@ -93,6 +94,7 @@ public class AlunoDAO {
         return alunos;
     }
 
+    //Método de buscar alunos do professor.
     public ArrayList<Aluno> getAlunosProfessor(Professor professor, String termo) throws Exception {
         String sql = "select * from tb_alu a join tb_tur t on(t.cd_tur=a.tb_tur_cd_tur) "
                 + "join tb_cur c on (c.cd_cur=t.tb_cur_cd_cur)"
@@ -115,6 +117,7 @@ public class AlunoDAO {
         return alunos;
     }
 
+    //Método Contador de alunos para o cd_alu
     public int getAlunoSequence() throws Exception {
         String sql = "SELECT COUNT(*) FROM tb_alu";
         con = new OracleConnector().getConnection();
@@ -126,16 +129,12 @@ public class AlunoDAO {
         }
         return contador;
     }
+
   
     
     public void setAluno(String nome_aluno, int tb_tur_cd_tur, int tb_login_cd_login, int cd_niv, int tb_tur_tb_cur_cd_cur) throws Exception {
         Aluno alu = null;
         String sql = "INSERT INTO tb_alu VALUES('"+nome_aluno+"','" +tb_tur_cd_tur+ "','"+tb_login_cd_login+"','"+cd_niv+"','"+tb_tur_tb_cur_cd_cur+"');";
-        con = new OracleConnector().getConnection();
-        stmt = con.createStatement();
-        stmt.executeUpdate(sql);
-        con.close();
-        stmt.close();
-        rs.close();
-    }
+
+  
 }
