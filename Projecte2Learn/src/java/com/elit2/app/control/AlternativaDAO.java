@@ -58,4 +58,17 @@ public class AlternativaDAO {
         int result = stmt.executeUpdate("DELETE FROM tb_altern WHERE cd_altern=" + alter.getCd_alternativa());
         return result;
     }
+
+    public int getAlternativaSequence() throws Exception {
+        String sql = "SELECT COUNT(*) FROM tb_altern";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        int contador = 0;
+        while (rs.next()) {
+            contador = Integer.parseInt(rs.getString("COUNT(*)")) + 1;
+        }
+        return contador;
+    }
+
 }

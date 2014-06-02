@@ -1,4 +1,3 @@
-
 package com.elit2.app.control;
 
 import com.elit2.app.model.Avaliacao;
@@ -35,7 +34,20 @@ public class QuestaoDAO {
     public int setQuestao(Questao questao, Avaliacao aval) throws Exception {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
-        int result = stmt.executeUpdate("INSERT INTO tb_quest VALUES (" + questao.getCd_questao() + ",'" + questao.getDs_questao() + "'," + questao.getIc_resposta() +","+questao.getCd_nivel()+ ")");
+        int result = stmt.executeUpdate("INSERT INTO tb_quest VALUES (" + questao.getCd_questao() + ",'" + questao.getDs_questao() + "'," + questao.getIc_resposta() + "," + questao.getCd_nivel() + ")");
         return result;
     }
+
+    public int getQuestaoSequence() throws Exception {
+        String sql = "SELECT COUNT(*) FROM tb_quest";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        int contador = 0;
+        while (rs.next()) {
+            contador = Integer.parseInt(rs.getString("COUNT(*)")) + 1;
+        }
+        return contador;
+    }
+
 }

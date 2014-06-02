@@ -25,7 +25,7 @@
             </button>
 
             <a class="navbar-brand" href="#" style="color:white;">
-                <span class="glyphicon glyphicon-list"></span>&nbsp;ELIT²</a>
+                <span class="glyphicon glyphicon-list"></span>&nbsp;E²-LEARN</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <%if (session.getAttribute("professor") != null || session.getAttribute("aluno") != null) {%>

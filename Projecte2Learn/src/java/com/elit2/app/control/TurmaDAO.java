@@ -20,7 +20,7 @@ public class TurmaDAO {
     public ArrayList<Turma> getTurma(Turma tur) throws Exception {
 
         String sql = "SELECT * FROM tb_tur t JOIN tb_curso c ON (c.cd_curso = t.TB_CURSO_CD_CURSO)";
-               
+
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
@@ -34,4 +34,17 @@ public class TurmaDAO {
         rs.close();
         return turmas;
     }
+
+    public int getTurmaSequence() throws Exception {
+        String sql = "SELECT COUNT(*) FROM tb_tur";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        int contador = 0;
+        while (rs.next()) {
+            contador = Integer.parseInt(rs.getString("COUNT(*)")) + 1;
+        }
+        return contador;
+    }
+
 }

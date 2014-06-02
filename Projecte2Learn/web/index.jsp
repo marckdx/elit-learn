@@ -44,12 +44,12 @@
                     response.sendRedirect("erro.jsp?ex="+ex.getMessage());
                 }
                 if (logins.size() > 0) {
-                    if (logins.get(0).getTp_login().charAt(0) == '1') {
+                    if (logins.get(0).getTp_login() == 1) {
                         ProfessorDAO profDao = new ProfessorDAO();
                         Professor prof = profDao.getProfessorPorLogin(logins.get(0).getCd_login());
                         session.setAttribute("professor", prof);
                         response.sendRedirect("dashboard.jsp?page=conteudos");
-                    } else if (logins.get(0).getTp_login().charAt(0) == '0') {
+                    } else if (logins.get(0).getTp_login() == 0) {
                         AlunoDAO aluDAO = new AlunoDAO();
                         Aluno aluno = aluDAO.getAlunoPorLogin(logins.get(0).getCd_login());
                         session.setAttribute("aluno", aluno);
@@ -68,15 +68,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">Library</a>
-                        </li>
-                        <li>
-                            <a href="#">Data</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -123,8 +114,8 @@
                             <div class="item active">
                                 <img src="img/img_banner.png.jpg">
                                 <div class="carousel-caption">
-                                    <h2>Title</h2>
-                                    <p>Description</p>
+                                    <h2></h2>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>

@@ -36,7 +36,7 @@ public class AvaliacaoDAO {
         rs = stmt.executeQuery(sql);
         ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
         while (rs.next()) {
-            Avaliacao avali = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"), rs.getString("nm_prof"),rs.getString("nm_discip"),rs.getBoolean("ic_stat"));
+            Avaliacao avali = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"), rs.getString("nm_prof"), rs.getString("nm_discip"), rs.getBoolean("ic_stat"));
             avaliacoes.add(avali);
         }
         con.close();
@@ -137,7 +137,7 @@ public class AvaliacaoDAO {
                 + "join tb_cur cur on(cur.cd_cur = cd.tb_cur_cd_cur)"
                 + "join tb_tur t on(t.tb_cur_cd_cur = cur.cd_cur)"
                 + "join tb_alu alu on(alu.tb_tur_cd_tur = t.cd_tur)"
-                + "WHERE alu.cd_alu='" + aluno.getCd_aluno() + "' and upper(nm_aval) like '%"+termo+"%'";
+                + "WHERE alu.cd_alu='" + aluno.getCd_aluno() + "' and upper(nm_aval) like '%" + termo + "%'";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
@@ -151,7 +151,7 @@ public class AvaliacaoDAO {
         rs.close();
         return avaliacoes;
     }
-    
+
     /**
      * Faz a inserção de valores
      *
@@ -162,15 +162,27 @@ public class AvaliacaoDAO {
     public void setInsereAvaliacao(Avaliacao avaliacao) throws Exception {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
-        stmt.executeUpdate("INSERT INTO tb_avali VALUES ('"+avaliacao.getCd_avaliacao()+"'',"+avaliacao.getNm_avaliacao()+"')");
-   }
-    
-     public void setDeleteAvaliacao(Avaliacao avaliacao) throws Exception {
+        stmt.executeUpdate("INSERT INTO tb_avali VALUES ('" + avaliacao.getCd_avaliacao() + "''," + avaliacao.getNm_avaliacao() + "')");
+    }
+
+    public void setDeleteAvaliacao(Avaliacao avaliacao) throws Exception {
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         stmt.executeUpdate("DELETE ROM tb_avali VALUES ('" + avaliacao.getCd_avaliacao() + "''," + avaliacao.getNm_avaliacao() + "')"
                 + "WHERE cd_avali='" + avaliacao.getCd_avaliacao()
                 + "");
+    }
+
+    public int getAvaliacaoSequence() throws Exception {
+        String sql = "SELECT COUNT(*) FROM tb_avali";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        int contador = 0;
+        while (rs.next()) {
+            contador = Integer.parseInt(rs.getString("COUNT(*)")) + 1;
+        }
+        return contador;
     }
 
 }

@@ -45,4 +45,17 @@ public class CursoDao {
         rs.close();
         return cursos;
     }
+    
+        public int getCursoSequence() throws Exception{
+        String sql = "SELECT COUNT(*) FROM tb_cur";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        int contador = 0;
+        while(rs.next()){
+            contador = Integer.parseInt(rs.getString("COUNT(*)"))+1;
+        }
+        return contador;
+    }
+
 }

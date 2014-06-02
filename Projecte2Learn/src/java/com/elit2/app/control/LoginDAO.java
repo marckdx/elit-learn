@@ -39,7 +39,7 @@ public class LoginDAO {
         
     }
     
-    public int getLoginCount() throws Exception{
+    public int getLoginSequence() throws Exception{
         String sql = "SELECT COUNT(*) FROM tb_login";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();

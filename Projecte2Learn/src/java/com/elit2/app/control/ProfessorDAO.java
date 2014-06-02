@@ -1,4 +1,3 @@
-
 package com.elit2.app.control;
 
 import com.elit2.app.model.Aluno;
@@ -92,6 +91,7 @@ public class ProfessorDAO {
 
     /**
      * Método que retorna o professor relacionado ao login
+     *
      * @param tb_login_cd_login
      * @return
      * @throws Exception
@@ -110,15 +110,28 @@ public class ProfessorDAO {
         rs.close();
         return profe;
     }
-    
-    public void setProfessor(String nome_professor, String cpf_professor, int tp_login) throws Exception{
-         Professor profe = null; 
-         String sql ="INSERT INTO tb_prof VALUES('"+profe.getNm_professor()+"''"+profe.getCd_cpf()+"''"+profe.getCd_login()+"';)";
-         con = new OracleConnector().getConnection();
-         stmt = con.createStatement();
-         stmt.executeUpdate(sql);
-         con.close();
-         stmt.close();
-         rs.close();
-    }  
+
+    public void setProfessor(String nome_professor, String cpf_professor, int tp_login) throws Exception {
+        Professor profe = null;
+        String sql = "INSERT INTO tb_prof VALUES('" + profe.getNm_professor() + "''" + profe.getCd_cpf() + "''" + profe.getCd_login() + "';)";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        stmt.executeUpdate(sql);
+        con.close();
+        stmt.close();
+        rs.close();
+    }
+
+    public int getProfessorSequence() throws Exception {
+        String sql = "SELECT COUNT(*) FROM tb_prof";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        int contador = 0;
+        while (rs.next()) {
+            contador = Integer.parseInt(rs.getString("COUNT(*)")) + 1;
+        }
+        return contador;
+    }
+
 }

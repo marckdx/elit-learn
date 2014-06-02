@@ -62,4 +62,17 @@ public class InstituicaoDAO {
         stmt.close();
         return result;
     }
+    
+        public int getInstituicaoSequence() throws Exception{
+        String sql = "SELECT COUNT(*) FROM tb_inst";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        int contador = 0;
+        while(rs.next()){
+            contador = Integer.parseInt(rs.getString("COUNT(*)"))+1;
+        }
+        return contador;
+    }
+
 }

@@ -247,7 +247,7 @@
                                   
                    ProfessorDAO professordao = new ProfessorDAO();
                    LoginDAO logindao = new LoginDAO();
-                   Login log = new Login(logindao.getLoginCount(),email_professor, senha_professor, 1) ;
+                   Login log = new Login(logindao.getLoginSequence(),email_professor, senha_professor, 1) ;
                    logindao.setLogin(log);
                    professordao.setProfessor(nome_professor, cpf_professor,1);
                 }

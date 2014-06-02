@@ -5,12 +5,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-/** @author Brunno */
+
+/**
+ * @author Brunno
+ */
 public class DisciplinaDAO {
 
     Connection con;
     Statement stmt;
     ResultSet rs;
+
     /**
      * Retorna todas as disciplinas cadastrados no banco de dados.
      */
@@ -29,10 +33,11 @@ public class DisciplinaDAO {
         rs.close();
         return disci;
     }
+
     /**
      * Busca a disciplina.
      */
-        public ArrayList<Disciplina> getDisciplinas(String nome) throws Exception {
+    public ArrayList<Disciplina> getDisciplinas(String nome) throws Exception {
         String sql = "SELECT * FROM tb_discip WHERE nm_discip LIKE '%" + nome + "%'";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
@@ -47,11 +52,12 @@ public class DisciplinaDAO {
         rs.close();
         return disci;
     }
-     /**
+
+    /**
      * Adiciona uma disciplina no banco.
      */
-    public int setDisciplina(Disciplina discip) throws Exception{
-        String sql = "INSERT INTO tb_discip VALUES ("+discip.getCd_Disciplina()+",'"+discip.getNm_Disciplina()+"')";
+    public int setDisciplina(Disciplina discip) throws Exception {
+        String sql = "INSERT INTO tb_discip VALUES (" + discip.getCd_Disciplina() + ",'" + discip.getNm_Disciplina() + "')";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         int result = stmt.executeUpdate(sql);
@@ -59,4 +65,17 @@ public class DisciplinaDAO {
         stmt.close();
         return result;
     }
+
+    public int getDisciplinaSequence() throws Exception {
+        String sql = "SELECT COUNT(*) FROM tb_discip";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        int contador = 0;
+        while (rs.next()) {
+            contador = Integer.parseInt(rs.getString("COUNT(*)")) + 1;
+        }
+        return contador;
+    }
+
 }
