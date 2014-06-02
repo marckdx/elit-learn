@@ -130,11 +130,11 @@ public class AlunoDAO {
         return contador;
     }
 
-  
     
     public void setAluno(String nome_aluno, int tb_tur_cd_tur, int tb_login_cd_login, int cd_niv, int tb_tur_tb_cur_cd_cur) throws Exception {
         Aluno alu = null;
         String sql = "INSERT INTO tb_alu VALUES('"+nome_aluno+"','" +tb_tur_cd_tur+ "','"+tb_login_cd_login+"','"+cd_niv+"','"+tb_tur_tb_cur_cd_cur+"');";
 
-  
+
+}
 }
