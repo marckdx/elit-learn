@@ -16,9 +16,9 @@ public class Login {
     private int cd_login;
     private String nm_email;
     private String nm_senha;
-    private String tp_login;
+    private int tp_login;
 
-    public Login(int cd_login, String nm_email, String nm_senha, String tp_login) {
+    public Login(int cd_login, String nm_email, String nm_senha, int tp_login) {
         this.cd_login = cd_login;
         this.nm_email = nm_email;
         this.nm_senha = nm_senha;
@@ -49,11 +49,11 @@ public class Login {
         this.nm_senha = nm_senha;
     }
 
-    public String getTp_login() {
+    public int getTp_login() {
         return tp_login;
     }
 
-    public void setTp_login(String tp_login) {
+    public void setTp_login(int tp_login) {
         this.tp_login = tp_login;
     }
     

@@ -38,4 +38,16 @@ public class LoginDAO {
         int result = stmt.executeUpdate("INSERT INTO tb_login VALUES ("+login.getCd_login()+",'"+login.getNm_email()+"','"+login.getNm_senha()+"','"+login.getTp_login()+"')");
         return result;
     }
+    
+    public int getLoginCount() throws Exception{
+        String sql = "SELECT COUNT(*) FROM tb_login";
+        con = new OracleConnector().getConnection();
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(sql);
+        int contador = 0;
+        while(rs.next()){
+            contador = Integer.parseInt(rs.getString("1"))+1;
+        }
+        return contador;
+    }
 }
