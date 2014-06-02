@@ -2,6 +2,7 @@ package com.elit2.app.control;
 
 import com.elit2.app.model.Aluno;
 import com.elit2.app.model.Professor;
+import com.elit2.app.model.Turma;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -125,11 +126,11 @@ public class AlunoDAO {
         }
         return contador;
     }
-   
+  
     
-    public void setAluno(String nome_aluno, int cd_turma, int tp_login) throws Exception {
-        Professor profe = null;
-        String sql = "INSERT INTO tb_prof VALUES('" + profe.getNm_professor() + "''" + profe.getCd_cpf() + "''" + profe.getCd_login() + "';)";
+    public void setAluno(String nome_aluno, int tb_tur_cd_tur, int tb_login_cd_login, int cd_niv, int tb_tur_tb_cur_cd_cur) throws Exception {
+        Aluno alu = null;
+        String sql = "INSERT INTO tb_alu VALUES('"+nome_aluno+"','" +tb_tur_cd_tur+ "','"+tb_login_cd_login+"','"+cd_niv+"','"+tb_tur_tb_cur_cd_cur+"');";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         stmt.executeUpdate(sql);

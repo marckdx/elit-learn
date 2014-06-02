@@ -50,7 +50,7 @@ public class TurmaDAO {
     public void setTurma(Turma turma) throws Exception{
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
-        stmt.executeUpdate("INSERT INTO tb_login VALUES ('"+turma.getCd_tur()+"' '"+turma.getCd_tur()+"''"+turma.getTb_curso_cd_curso()+"')");
+        stmt.executeUpdate("INSERT INTO tb_tur VALUES ("+turma.getCd_tur()+"','"+turma.getNm_tur()+"','"+turma.getTb_curso_cd_curso()+"')");
     }
 
 }
