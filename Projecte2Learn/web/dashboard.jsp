@@ -22,6 +22,7 @@
         <link href="./css/bootstrap.min.css" rel="stylesheet">
         <script type="text/javascript" src="./js/jquery.min.js"></script>
         <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+         <link rel="shortcut icon" href="img/emblem_library.ico" type="image/x-icon" />
     </head>
 
     <body>
@@ -29,6 +30,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <div>
+                        <img src='img/emblem_library.png'>
+                    </div>
                     <div class="page-header">
                         <h1 class="text-center text-primary">E²-LEARN
                             <small>Meu dashboard</small>
