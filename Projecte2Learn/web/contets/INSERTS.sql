@@ -47,3 +47,11 @@ insert into tb_alu values(2, 'Gilberto Fioravante', 1, 5, 1, 1);
 insert into tb_alu values(3, 'Sérgio Fortuna', 1, 6, 1, 1);
 
 select * from tb_alu;
+
+select * from tb_cont c join tb_prof p on (p.cd_prof=c.TB_PROF_CD_PROF);
+select * from tb_stat;
+select * from tb_cont;
+select * from tb_imag;
+insert into tb_stat values (1,1,1);
+insert into tb_imag values (1, 'Polinômios','/imdb/01-01-20140601-2311.png')
+insert into tb_cont values (1,1,123456789,1,'Polinômios', 'Em matemática, função polinomial é uma função P que pode ser expressa da forma: em que é um número inteiro não negativo e os números são constantes, chamadas de coeficientes do polinômio.',1);
