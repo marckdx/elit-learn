@@ -43,11 +43,13 @@
                         try {
                             avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"));
                         } catch (Exception ex) {
+                            response.sendRedirect("erro.jsp?error="+ex.getMessage());
                         }
                     } else {
                         try {
                             avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("aluno"));
                         } catch (Exception ex) {
+                            response.sendRedirect("erro.jsp?error="+ex.getMessage());
                         }
                     }
                 } else {
@@ -55,11 +57,13 @@
                         try {
                             avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
                         } catch (Exception ex) {
+                            response.sendRedirect("erro.jsp?error="+ex.getMessage());
                         }
                     } else {
                         try {
                             avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("professor"), request.getParameter("search").toString());
                         } catch (Exception ex) {
+                            response.sendRedirect("erro.jsp?error="+ex.getMessage());
                         }
 
                     }
@@ -104,7 +108,7 @@
                             }
                         }
                     } else {
-                        out.print("<tr><td colspan='4' style='text-align:center;'>Nenhuma avaliação encontrado</td></tr>");
+                        out.print("<tr><td colspan='4' style='text-align:center;'>Nenhuma avaliação encontrada</td></tr>");
                     }
                 } 
                 //Aqui é o else do bloco inteiro
@@ -129,7 +133,8 @@
                             }
                         }
                     } else {
-                        out.println(avaliacoes.get(0).getNm_disciplina());
+                        
+                        //out.println(avaliacoes.get(0).getNm_disciplina());
                         out.print("<tr><td colspan='5' style='text-align:center;'>Nenhuma avaliação encontrado</td></tr>");
                     }
                 }
