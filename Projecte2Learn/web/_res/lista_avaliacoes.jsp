@@ -21,7 +21,7 @@
                 <th colspan="1">Disciplina</th>
                 <th colspan="1">Ações</th>
                     <%//Criado caso seja aluno uma coluna com o nome do professor aparece
-                    if (session.getAttribute("aluno") != null) {%>
+                        if (session.getAttribute("aluno") != null) {%>
                 <th>Vi?</th>
                     <%}%>
             </tr>
@@ -43,29 +43,32 @@
                         try {
                             avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"));
                         } catch (Exception ex) {
-                            response.sendRedirect("erro.jsp?error="+ex.getMessage());
+                            response.sendRedirect("erro.jsp?error=" + ex.getMessage() + " Na listagem de avaliações do professor.");
                         }
                     } else {
-                        try {
+                        //try {
                             avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("aluno"));
-                        } catch (Exception ex) {
-                            response.sendRedirect("erro.jsp?error="+ex.getMessage());
-                        }
+                        //} catch (Exception ex) {
+                            //response.sendRedirect("erro.jsp?error=" + ex.getMessage() + " Na listagem de avaliações do aluno. ");
+                        //}
                     }
                 } else {
                     if (session.getAttribute("professor") != null) {
                         try {
                             avaliacoes = avaliDao.getAvaliacaoProfessor((Professor) session.getAttribute("professor"), request.getParameter("search").toString());
                         } catch (Exception ex) {
-                            response.sendRedirect("erro.jsp?error="+ex.getMessage());
+                            response.sendRedirect("erro.jsp?error=" + ex.getMessage() + " Na pesquisa de avaliações do professor.");
                         }
-                    } else {
+                    } else if (session.getAttribute("aluno") != null) {
                         try {
-                            avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("professor"), request.getParameter("search").toString());
+                            avaliacoes = avaliDao.getAvaliacaoAluno((Aluno) session.getAttribute("aluno"), request.getParameter("search").toString());
                         } catch (Exception ex) {
-                            response.sendRedirect("erro.jsp?error="+ex.getMessage());
+
+                            response.sendRedirect("erro.jsp?error=" + ex.getMessage() + " Na pesquisa de avaliações do aluno.");
                         }
 
+                    } else {
+                        response.sendRedirect("index.jsp");
                     }
                     out.println("<ol class='breadcrumb'>");
                     out.println("<span class='glyphicon glyphicon-search'></span>");
@@ -88,55 +91,55 @@
                 }
 
                 /*//
-                Criei este if pra isolar o bloco inteiro abaixo
-                Testando se é professor ou não de resto não alterei a funcionalidade original                    
-                Porémm no if interno onde verifica se existe um array de avaliações nunca é acionado
-                sempre cai no Else
-                */
+                 Criei este if pra isolar o bloco inteiro abaixo
+                 Testando se é professor ou não de resto não alterei a funcionalidade original                    
+                 Porémm no if interno onde verifica se existe um array de avaliações nunca é acionado
+                 sempre cai no Else
+                 */
                 if (session.getAttribute("professor") != null) {
-                    if (avaliacoes != null) {
-                        int cont = 0;
-                        for (Avaliacao a : avaliacoes) {
-                            out.println("<tr>");
-                            out.println("<td>" + a.getCd_avaliacao() + "</td>");
-                            out.println("<td>" + a.getNm_avaliacao() + "</td>");
-                            out.println("<td><a target='_blank' href='avaliacao.jsp?avaliacao=" + a.getCd_avaliacao() + " '>Ver avaliação</a></td>");
-                            out.println("</tr>");
-                            cont++;
-                            if (cont == max) {
-                                break;
-                            }
+                if (avaliacoes != null) {
+                    int cont = 0;
+                    for (Avaliacao a : avaliacoes) {
+                        out.println("<tr>");
+                        out.println("<td>" + a.getCd_avaliacao() + "</td>");
+                        out.println("<td>" + a.getNm_avaliacao() + "</td>");
+                        out.println("<td><a target='_blank' href='avaliacao.jsp?avaliacao=" + a.getCd_avaliacao() + " '>Ver avaliação</a></td>");
+                        out.println("</tr>");
+                        cont++;
+                        if (cont == max) {
+                            break;
                         }
+                    }
                     } else {
                         out.print("<tr><td colspan='4' style='text-align:center;'>Nenhuma avaliação encontrada</td></tr>");
                     }
-                } 
-                //Aqui é o else do bloco inteiro
+                } //Aqui é o else do bloco inteiro
                 //Caindo aqui ele escreve na tela as acaliações referentes ao aluno
                 else {
                     if (avaliacoes != null) {
-                        int cont = 0;
+                     int cont = 0;
 
-                        for (Avaliacao a : avaliacoes) {
-                            out.println("<tr>");
-                            out.println("<td>" + a.getCd_avaliacao() + "</td>");
-                            out.println("<td>" + a.getNm_avaliacao() + "</td>");
-                            out.println("<td>" + a.getNm_professor() + "</td>");
-                            out.println("<td>" + a.getNm_disciplina() + "</td>");
-                            out.println("<td><a target='_blank' href='avaliacao.jsp?avaliacao=" + a.getCd_avaliacao() + " '>Ver avaliação</a></td>");
-                            out.println("<td>a</td>");
+                     for (Avaliacao a : avaliacoes) {
+                     out.println("<tr>");
+                     out.println("<td>" + a.getCd_avaliacao() + "</td>");
+                     out.println("<td>" + a.getNm_avaliacao() + "</td>");
+                     out.println("<td>" + a.getNm_professor() + "</td>");
+                     out.println("<td>" + a.getNm_disciplina() + "</td>");
+                     out.println("<td><a target='_blank' href='avaliacao.jsp?avaliacao=" + a.getCd_avaliacao() + " '>Ver avaliação</a></td>");
+                     out.println("<td>a</td>");
 
-                            out.println("</tr>");
-                            cont++;
-                            if (cont == max) {
-                                break;
-                            }
-                        }
-                    } else {
+                     out.println("</tr>");
+                     cont++;
+                     if (cont == max) {
+                     break;
+                     }
+                     }
+                     } else {
                         
-                        //out.println(avaliacoes.get(0).getNm_disciplina());
-                        out.print("<tr><td colspan='5' style='text-align:center;'>Nenhuma avaliação encontrado</td></tr>");
-                    }
+                     out.println(avaliacoes.get(0).getNm_disciplina());
+                     out.print("<tr><td colspan='5' style='text-align:center;'>Nenhuma avaliação encontrado</td></tr>");
+                     }
+                     
                 }
 
             %>
