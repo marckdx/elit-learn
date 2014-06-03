@@ -16,13 +16,7 @@
     </head>
 
     <body>
-        <%
-            
-        %>
-
-
-
-        <%@include file="_res/menu.jsp"%>
+         <%@include file="_res/menu.jsp"%>
         <br>
         <br>
         <br>
@@ -40,7 +34,7 @@
             <%@include file="_res/menu_lateral.jsp"%>
             <div name="princupal" class="col-md-9">
                 <!--COMEÇO DO FORME -->
-                <form name="form_conteudo" method="post" role="form" enctype="multipart/form-data">
+                <form name="form_conteudo" action="_res/gera_arquivo.jsp" method="post" role="form" enctype="multipart/form-data">
                     <!--CARROSSEL DE IMAGENS -->
                     <div id="carrossel" class="carousel slide" data-ride="carousel" data-interval="0">
                         <div class="carousel-inner">
@@ -102,7 +96,11 @@
         </div>
     </div>
 
-    <%}%>
+    <%}else{
+            response.sendRedirect("dashboard.jsp");
+        }
+    
+    %>
 
 
 

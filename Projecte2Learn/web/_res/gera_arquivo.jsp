@@ -1,31 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.elit2.app.control;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.fileupload.FileItemIterator;
-import org.apache.commons.fileupload.FileItemStream;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
-/**
- *
- * @author Ivan Aurélio
- */
-public class FileUpload extends HttpServlet {
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+<%@page import="org.apache.commons.fileupload.FileUploadException"%>
+<%@page import="java.io.InputStream"%>
+<%@page import="org.apache.commons.fileupload.FileItemStream"%>
+<%@page import="org.apache.commons.fileupload.FileItemIterator"%>
+<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
+<%
+ boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         if (isMultipart) {
             ServletFileUpload upload = new ServletFileUpload();
             try {
@@ -48,9 +27,9 @@ public class FileUpload extends HttpServlet {
                         }
                     }
                 }
-            } catch (FileUploadException ex) {
-                ex.printStackTrace();
+            } catch (Exception ex) {
+                response.sendRedirect("erro.jsp?error="+ex.getMessage());
             }
         }
-    }
-}
+
+%>
