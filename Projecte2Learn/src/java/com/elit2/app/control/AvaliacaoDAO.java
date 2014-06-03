@@ -64,7 +64,7 @@ public class AvaliacaoDAO {
 
         while (rs.next()) {
 
-            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_aval"));
+            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"));
             avaliacoes.add(avaliacao);
         }
         con.close();
@@ -77,7 +77,7 @@ public class AvaliacaoDAO {
         String sql = " select * from tb_avali a"
                 + " join tb_cont c on(a.tb_cont_cd_cont=c.cd_cont)"
                 + " join tb_prof p on(c.tb_prof_cd_prof = p.cd_prof)"
-                + " where p.cd_prof = " + prof.getCd_professor() + " and upper(a.nm_aval) like '%" + termo.toUpperCase() + "%'";
+                + " where p.cd_prof = " + prof.getCd_professor() + " and upper(a.nm_avali) like '%" + termo.toUpperCase() + "%'";
 
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
@@ -86,7 +86,7 @@ public class AvaliacaoDAO {
 
         while (rs.next()) {
 
-            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_aval"));
+            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"));
             avaliacoes.add(avaliacao);
         }
         con.close();
@@ -121,7 +121,7 @@ public class AvaliacaoDAO {
         rs = stmt.executeQuery(sql);
         
         while (rs.next()) {
-            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_aval"), rs.getString("nm_prof"), rs.getString("nm_discip"));
+            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"), rs.getString("nm_prof"), rs.getString("nm_discip"));
             avaliacoes.add(avaliacao);
         }
         con.close();
@@ -140,13 +140,13 @@ public class AvaliacaoDAO {
                 + "join tb_cur cur on(cur.cd_cur = cd.tb_cur_cd_cur)"
                 + "join tb_tur t on(t.tb_cur_cd_cur = cur.cd_cur)"
                 + "join tb_alu alu on(alu.tb_tur_cd_tur = t.cd_tur)"
-                + "WHERE alu.cd_alu=" + aluno.getCd_aluno() + " and upper(nm_aval) like '%" + termo + "%'";
+                + "WHERE alu.cd_alu=" + aluno.getCd_aluno() + " and upper(nm_avali) like '%" + termo + "%'";
         con = new OracleConnector().getConnection();
         stmt = con.createStatement();
         rs = stmt.executeQuery(sql);
         ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
         while (rs.next()) {
-            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_aval"));
+            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"));
             avaliacoes.add(avaliacao);
         }
         con.close();
