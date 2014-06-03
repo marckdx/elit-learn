@@ -13,12 +13,15 @@
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                    <%if (session.getAttribute("aluno") != null) {%>
+
+                <% //Criado caso seja aluno uma coluna com o nome do professor aparece
+                    if (session.getAttribute("aluno") != null) {%>
                 <th>Professor</th>
                     <%}%>
                 <th colspan="1">Disciplina</th>
                 <th colspan="1">Ações</th>
-                    <%if (session.getAttribute("aluno") != null) {%>
+                    <%//Criado caso seja aluno uma coluna com o nome do professor aparece
+                    if (session.getAttribute("aluno") != null) {%>
                 <th>Vi?</th>
                     <%}%>
             </tr>
@@ -80,6 +83,12 @@
                     out.println("</ol>");
                 }
 
+                /*//
+                Criei este if pra isolar o bloco inteiro abaixo
+                Testando se é professor ou não de resto não alterei a funcionalidade original                    
+                Porémm no if interno onde verifica se existe um array de avaliações nunca é acionado
+                sempre cai no Else
+                */
                 if (session.getAttribute("professor") != null) {
                     if (avaliacoes != null) {
                         int cont = 0;
@@ -97,7 +106,10 @@
                     } else {
                         out.print("<tr><td colspan='4' style='text-align:center;'>Nenhuma avaliação encontrado</td></tr>");
                     }
-                } else {
+                } 
+                //Aqui é o else do bloco inteiro
+                //Caindo aqui ele escreve na tela as acaliações referentes ao aluno
+                else {
                     if (avaliacoes != null) {
                         int cont = 0;
 
@@ -117,6 +129,7 @@
                             }
                         }
                     } else {
+                        out.println(avaliacoes.get(0).getNm_disciplina());
                         out.print("<tr><td colspan='5' style='text-align:center;'>Nenhuma avaliação encontrado</td></tr>");
                     }
                 }

@@ -118,7 +118,7 @@ public class AvaliacaoDAO {
         rs = stmt.executeQuery(sql);
         ArrayList<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
         while (rs.next()) {
-            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"), rs.getString("nm_prof"), rs.getString("nm_discip"));
+            Avaliacao avaliacao = new Avaliacao(rs.getInt("cd_avali"), rs.getString("nm_avali"));
             avaliacoes.add(avaliacao);
         }
         con.close();
